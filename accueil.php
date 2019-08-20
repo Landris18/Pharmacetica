@@ -1,23 +1,22 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html lang="en">
  
  <head>
    <meta charset="utf-8" />
-   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img//pharmacie_icone-1.png">
-   <link rel="icon" type="image/png" href="./assets/img//pharmacie_icone-1.png">
+   <link rel="apple-touch-icon" sizes="76x76" href="public/img/pharmacie_icone-1.png">
+   <link rel="icon" type="image/png" href="public/img/pharmacie_icone-1.png">
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <title>
-     Acceuil
+     Tongasoa | Pharmacetica
    </title>
    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
    <!--     Fonts and icons     -->
-   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+   <link rel="stylesheet" href="public/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
    <!-- CSS Files -->
-   <link href="./assets/css/material-kit.css?v=2.0.5" rel="stylesheet" />
+   <link href="public/css/material-kit.css?v=2.0.5" rel="stylesheet" />
    <!-- CSS Just for demo purpose, don't include it in your project -->
-   <link href="./assets/demo/demo.css" rel="stylesheet" />
+   <link href="public/css/demo.css" rel="stylesheet" />
  </head>
  
  <body class="index-page sidebar-collapse">
@@ -36,12 +35,12 @@
        
        
          <div class="title">
-           <h3>Fitantanana Ny Fivarotam-panafody </h3>
+           <h3>Fitantanana Fivarotam-panafody </h3>
          </div>
        </div>
        <!--             navbar -->
        <div id="navbar">
-         <div class="navigation-example" style="background-image: url('./assets/img//bg.jpg');">
+         <div class="navigation-example" style="background-image: url('public/img/bg.jpg');">
            <!--        rose navbar with search form -->
            <nav class="navbar navbar-expand-lg bg-rose">
              <div class="container">
@@ -56,10 +55,10 @@
                <div class="collapse navbar-collapse">
                  <ul class="navbar-nav">
                    <li class="nav-item active">
-                     <a href="admin.html" class="nav-link">Mpandrindra</a>
+                     <a href="admin.php" class="" style="color:#fff"> <b>Mpandrindra</b></a>
                    </li>
                    <li class="nav-item">
-                     <a href="formulaire.html" class="nav-link">Hanao famandriana</a>
+                     <a href="formulaire.php" class="" style="color:#fff; margin-left:60px !important;"> <b> Hamandrika fanafody </b></a>
                    </li>
                  </ul>
                  <form class="form-inline ml-auto">
@@ -67,7 +66,7 @@
                      <input type="text" class="form-control" placeholder="Tadiavo">
                    </div>
                    <button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
-                    	<a href="#deleteEmployeeModal1"  data-toggle="modal"><i class="material-icons">search</i></a> 
+                    	<a href="#deleteEmployeeModal1"  data-toggle="modal"><i class="fa fa-search" style="color: #e91e63 !important;"> </i></a> 
                     
                    </button>
                  </form>
@@ -92,54 +91,54 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
               </ol>
-              <div class="carousel-inner">
+              <div class="carousel-inner" style= "height: 400px !important;">
                 <div class="carousel-item active">
-                  <img class="d-block w-50" src="./assets/img//paracetamol.png" alt="First slide">
+                  <img class="d-block w-50" style= "margin-top: 85px !important;" src="public/img/paracetamol.png" alt="First slide">
                   <div class="carousel-caption d-none d-md-block">
                     <h4>
-                      <i class="material-icons">location_on</i> Yellowstone National Park, United States
+                      <i class="material-icons"></i> 
                     </h4>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-50" src="./assets/img//doliprane.jpeg" alt="Second slide">
+                  <img class="d-block w-50" src="public/img/doliprane.jpeg" alt="Second slide">
                   <div class="carousel-caption d-none d-md-block">
                     <h4>
-                      <i class="material-icons">location_on</i> Somewhere Beyond, United States
+                      <i class="material-icons"></i> 
                     </h4>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-50" src="./assets/img//brufen.jpg" alt="Third slide">
+                  <img class="d-block w-50" src="public/img/brufen.jpg" alt="Third slide">
                   <div class="carousel-caption d-none d-md-block">
                     <h4>
-                      <i class="material-icons">location_on</i> Yellowstone National Park, United States
+                      <i class="material-icons"></i> 
                     </h4>
                   </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-50" src="./assets/img//ibuprofene.jpeg" alt="Fourth slide">
+                    <img class="d-block w-50" src="public/img/ibuprofene.jpeg" alt="Fourth slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h4>
-                        <i class="material-icons">location_on</i> Yellowstone National Park, United States
+                        <i class="material-icons"></i>
                       </h4>
                     </div>
                   </div>
                   <div class="carousel-item">
-                      <img class="d-block w-50" src="./assets/img//paradic.jpeg" alt="Fifth slide">
+                      <img class="d-block w-50" src="public/img/paradic.jpeg" alt="Fifth slide">
                       <div class="carousel-caption d-none d-md-block">
                         <h4>
-                          <i class="material-icons">location_on</i> Yellowstone National Park, United States
+                          <i class="material-icons">
                         </h4>
                       </div>
                     </div>
               </div>
               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <i class="material-icons">keyboard_arrow_left</i>
+                <i class="material-icons"></i>
                 <span class="sr-only">Previous</span>
               </a>
               <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <i class="material-icons">keyboard_arrow_right</i>
+                <i class="material-icons"></i>
                 <span class="sr-only">Next</span>
               </a>
             </div>
@@ -151,17 +150,16 @@
   </div>
   <!--         end carousel -->
        
-        </div>
-    
-     
-     </div>
+  </div>
+</div>
+  
   <!-- Search Modal HTML -->
 	<div id="deleteEmployeeModal1" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
           <form>
             <div class="modal-header">						
-              <h4 class="modal-title">Votre recherche</h4>
+              <h4 class="modal-title">Voka-pikarohana</h4>
               
             </div>
             <div class="modal-body">					
@@ -186,18 +184,18 @@
    </footer>
 
    <!--   Core JS Files   -->
-   <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
-   <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-   <script src="./assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-   <script src="./assets/js/plugins/moment.min.js"></script>
+   <script src="public/js/core/jquery.min.js" type="text/javascript"></script>
+   <script src="public/js/core/popper.min.js" type="text/javascript"></script>
+   <script src="public/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+   <script src="public/js/plugins/moment.min.js"></script>
    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-   <script src="./assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+   <script src="public/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-   <script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+   <script src="public/js/plugins/nouislider.min.js" type="text/javascript"></script>
    <!--  Google Maps Plugin    -->
    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
    <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-   <script src="./assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
+   <script src="public/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
    <script>
      $(document).ready(function() {
        //init DateTimePickers

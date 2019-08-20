@@ -1,3 +1,9 @@
+<?php 
+	require('connect_bdd.php');
+	session_start();
+	if (isset($_SESSION['solonanarana'] )) {
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -5,16 +11,16 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gestion de pharmaci</title>
-<link rel="apple-touch-icon" sizes="76x76" href="./assets/img//add.jpeg">
-   <link rel="icon" type="image/png" href="./assets/img//add.jpeg">
+<title>Gestion de Pharmacie</title>
+<link rel="apple-touch-icon" sizes="76x76" href="public/img//add.jpeg">
+   <link rel="icon" type="image/png" href="public/img/add.jpeg">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="pharmaci.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="public/css/font-awesome.min.css">
+<link rel="stylesheet" href="public/css/bootstrap.min.css">
+<link rel="stylesheet" href="public/css/pharmacie.css">
+<script src="public/js/jquery.min.js"></script>
+<script src="public/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	// Activate tooltip
@@ -42,133 +48,134 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-    <div class="container">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <div class="row">
-                    <div class="col-sm-6">
-						<h2>Ireo <b>Fanafody</b></h2>
-					</div>
+    	<div class="container">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
 					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Hampiditra fanafody</span></a>
-						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Hamafa</span></a>						
-					</div>
-                </div>
-            </div>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-						<th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-						</th>
-                        <th>Référence</th>
-                        <th>Anarana</th>
-						<th>Isan'ny fanafody</th>
-                        <th>Isan'ny voafandrika</th>
-                        <th>Sisa</th>
-						<th>Vidin'ny iray</th>
-						<th>Hanova</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-                        <td>Thomas Hardy</td>
-                        <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
-						<td>(171) 555-2222</td>
-						<td>122222</td>
-						<td>20 000 0000</td>
-                        <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox2" name="options[]" value="1">
-								<label for="checkbox2"></label>
-							</span>
-						</td>
-                        <td>Dominique Perrier</td>
-                        <td>dominiqueperrier@mail.com</td>
-						<td>Obere Str. 57, Berlin, Germany</td>
-						<td>(313) 555-5735</td>
-						<td>122222</td>
-						<td>20 000 0000</td>
-                        <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        </td>
-                    </tr>
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox3" name="options[]" value="1">
-								<label for="checkbox3"></label>
-							</span>
-						</td>
-                        <td>Maria Anders</td>
-                        <td>mariaanders@mail.com</td>
-						<td>25, rue Lauriston, Paris, France</td>
-						<td>(503) 555-9931</td>
-						<td>122222</td>
-						<td>20 000 0000</td>
-                        <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox4" name="options[]" value="1">
-								<label for="checkbox4"></label>
-							</span>
-						</td>
-                        <td>Fran Wilson</td>
-                        <td>franwilson@mail.com</td>
-						<td>C/ Araquil, 67, Madrid, Spain</td>
-						<td>(204) 619-5731</td>
-						<td>122222</td>
-						<td>20 000 0000</td>
-                        <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        </td>
-                    </tr>					
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox5" name="options[]" value="1">
-								<label for="checkbox5"></label>
-							</span>
-						</td>
-                        <td>Martin Blank</td>
-                        <td>martinblank@mail.com</td>
-						<td>Via Monte Bianco 34, Turin, Italy</td>
-						<td>(480) 631-2097</td>
-						<td>122222</td>
-						<td>20 000 0000</td>
-                        <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        </td>
-                    </tr> 
-                </tbody>
-            </table>
-			
-        </div>
-    </div>
+					<h2>Ireo <b>Fanafody</b></h2>
+				</div>
+				<div class="col-sm-6">
+					<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Hampiditra fanafody</span></a>
+					<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Hamafa</span></a>						
+				</div>
+			</div>
+		</div>
+          
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>
+						<span class="custom-checkbox">
+							<input type="checkbox" id="selectAll">
+							<label for="selectAll"></label>
+						</span>
+					</th>
+					<th>Référence</th>
+					<th>Anarana</th>
+					<th>Isan'ny fanafody</th>
+					<th>Isan'ny voafandrika</th>
+					<th>Sisa</th>
+					<th>Vidin'ny iray</th>
+					<th>Hanova</th>
+				</tr>
+			</thead>
+			<tbody>
+                    		<tr>
+					<td>
+						<span class="custom-checkbox">
+							<input type="checkbox" id="checkbox1" name="options[]" value="1">
+							<label for="checkbox1"></label>
+						</span>
+					</td>
+					<td>Thomas Hardy</td>
+					<td>thomashardy@mail.com</td>
+					<td>89 Chiaroscuro Rd, Portland, USA</td>
+					<td>(171) 555-2222</td>
+					<td>122222</td>
+					<td>20 000 0000</td>
+                        			<td>
+						<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+						<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        			</td>
+                    		</tr>
+                    		<tr>
+					<td>
+						<span class="custom-checkbox">
+							<input type="checkbox" id="checkbox2" name="options[]" value="1">
+							<label for="checkbox2"></label>
+						</span>
+					</td>
+					<td>Dominique Perrier</td>
+					<td>dominiqueperrier@mail.com</td>
+					<td>Obere Str. 57, Berlin, Germany</td>
+					<td>(313) 555-5735</td>
+					<td>122222</td>
+					<td>20 000 0000</td>
+					<td>
+						<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+						<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+					</td>
+                    		</tr>
+				<tr>
+					<td>
+						<span class="custom-checkbox">
+							<input type="checkbox" id="checkbox3" name="options[]" value="1">
+							<label for="checkbox3"></label>
+						</span>
+					</td>
+                        			<td>Maria Anders</td>
+                        			<td>mariaanders@mail.com</td>
+					<td>25, rue Lauriston, Paris, France</td>
+					<td>(503) 555-9931</td>
+					<td>122222</td>
+					<td>20 000 0000</td>
+                        			<td>
+                            				<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            				<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                       			 </td>
+                   			 </tr>
+                    		<tr>
+					<td>
+						<span class="custom-checkbox">
+							<input type="checkbox" id="checkbox4" name="options[]" value="1">
+							<label for="checkbox4"></label>
+						</span>
+					</td>
+					<td>Fran Wilson</td>
+					<td>franwilson@mail.com</td>
+					<td>C/ Araquil, 67, Madrid, Spain</td>
+					<td>(204) 619-5731</td>
+					<td>122222</td>
+					<td>20 000 0000</td>
+                        			<td>
+                            				<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            				<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        			</td>
+                    		</tr>					
+				<tr>
+					<td>
+						<span class="custom-checkbox">
+							<input type="checkbox" id="checkbox5" name="options[]" value="1">
+							<label for="checkbox5"></label>
+						</span>
+					</td>
+					<td>Martin Blank</td>
+					<td>martinblank@mail.com</td>
+					<td>Via Monte Bianco 34, Turin, Italy</td>
+					<td>(480) 631-2097</td>
+					<td>122222</td>
+					<td>20 000 0000</td>
+					<td>
+						<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+						<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+					</td>
+                    		</tr> 
+                		</tbody>
+            	</table>
+	</div>
+	
+	
 	<!-- Edit Modal HTML -->
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
@@ -212,6 +219,9 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
+	
+	
+	
 	<!-- Edit Modal HTML -->
 	<div id="editEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
@@ -255,6 +265,8 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
+	
+	
 	<!-- Delete Modal HTML -->
 	<div id="deleteEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
@@ -276,6 +288,8 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
+	
+	
 	<footer class="footer" data-background-color="black">
 			<div class="container">
 			  <div class="copyright float-right">
@@ -286,6 +300,14 @@ $(document).ready(function(){
 				
 			  </div>
 			</div>
-		  </footer>
+	</footer>
+	
+	<button >  <a href ="server.php?deconnection"> DECONNEXION </a></button>
+
 </body>
-</html>                                		
+</html>                           
+
+<?php   
+} 
+
+?>
