@@ -45,14 +45,14 @@
            <nav class="navbar navbar-expand-lg bg-rose">
              <div class="container">
                <div class="navbar-translate">
-                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                   <span class="sr-only">Toggle navigation</span>
-                   <span class="navbar-toggler-icon"></span>
-                   <span class="navbar-toggler-icon"></span>
-                   <span class="navbar-toggler-icon"></span>
+                 <button class="navbar-toggler"  type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
                  </button>
                </div>
-               <div class="collapse navbar-collapse">
+               <div class="collapse navbar-collapse" id="cola">
                  <ul class="navbar-nav">
                    <li class="nav-item active">
                      <a href="admin.php" class="" style="color:#fff"> <b>Mpandrindra</b></a>
@@ -67,7 +67,6 @@
                    </div>
                    <button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
                     	<a href="#deleteEmployeeModal1"  data-toggle="modal"><i class="fa fa-search" style="color: #e91e63 !important;"> </i></a> 
-                    
                    </button>
                  </form>
                </div>
