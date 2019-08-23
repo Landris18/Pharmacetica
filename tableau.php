@@ -1,7 +1,42 @@
-<?php 
+<?php
+
+	//erreur sur l'ajout----------------------------------------------------------------------------------------------------
 	require('connect_bdd.php');
+	if (isset($_GET['erreur'])){
+		if ($_GET['erreur'] == 'true') {
+			$erreur = 'Solonanarana na tenimiafina diso';
+		}
+	}
+	//mamafa---------------------------------------------------------------------------------------------------------------
+	if (isset($_GET['succes'])){
+		if ($_GET['succes'] == 'true') {
+			$succes = 'voafafa soa aman-tsara';
+		}
+	}
+	//erreur reference----------------------------------------------------------------------------------------------------
+	if (isset($_GET['erreur_reference'])){
+		if ($_GET['erreur_reference'] == 'true') {
+			$err_ref = 'Hamarino tsara ny référence nampidirinao';
+		}
+	}
+	//erreur isa----------------------------------------------------------------------------------------------------------
+	if (isset($_GET['erreur_isa'])){
+		if ($_GET['erreur_isa'] == 'true') {
+			$err_isa = "Hamarino tsara ny isan'ny fanafody nampidirinao";
+		}
+	}
+	//erreur vidy----------------------------------------------------------------------------------------------------------
+	if (isset($_GET['erreur_vola'])){
+		if ($_GET['erreur_vola'] == 'true') {
+			$err_vola = "Hamarino tsara ny vidin'ny fanafody nampidirinao";
+		}
+	}
+	
+
+	//session_start--------------------------------------------------------------------------------------------------------
 	session_start();
 	if (isset($_SESSION['solonanarana'] )) {
+		
 ?>
 
 
@@ -73,14 +108,22 @@ $(document).ready(function(){
 					</th>
 					<th>Référence</th>
 					<th>Anarana</th>
-					<th>Isan'ny fanafody</th>
+					<th>Vidin'ny iray</th>
 					<th>Isan'ny voafandrika</th>
 					<th>Sisa</th>
-					<th>Vidin'ny iray</th>
+					<th>Isan'ny fanafody</th>
 					<th>Hanova</th>
 				</tr>
 			</thead>
 			<tbody>
+				<?php 
+
+				$tab = $_SESSION["tab"] ;
+				$unit = 'Ar';
+				for($i=0; $i<$_SESSION["nbr"]; $i++){
+					$id = $tab[$i]['id'];
+
+				?>
                     		<tr>
 					<td>
 						<span class="custom-checkbox">
@@ -88,89 +131,42 @@ $(document).ready(function(){
 							<label for="checkbox1"></label>
 						</span>
 					</td>
-					<td>Thomas Hardy</td>
-					<td>thomashardy@mail.com</td>
-					<td>89 Chiaroscuro Rd, Portland, USA</td>
-					<td>(171) 555-2222</td>
-					<td>122222</td>
-					<td>20 000 0000</td>
+					<td> <?=$tab[$i]['id'] ?></td>
+					<td> <?=$tab[$i]['nom'] ?></td>
+					<td> <?=$tab[$i]['prix_unit'] ; echo $unit;?></td>
+					<td> </td>
+					<td> </td>
+					<td> <?=$tab[$i]['nombre'] ?></td>
                         			<td>
-						<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+						<a href="server.php?id=<?=$id?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 						<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         			</td>
-                    		</tr>
-                    		<tr>
-					<td>
-						<span class="custom-checkbox">
-							<input type="checkbox" id="checkbox2" name="options[]" value="1">
-							<label for="checkbox2"></label>
-						</span>
-					</td>
-					<td>Dominique Perrier</td>
-					<td>dominiqueperrier@mail.com</td>
-					<td>Obere Str. 57, Berlin, Germany</td>
-					<td>(313) 555-5735</td>
-					<td>122222</td>
-					<td>20 000 0000</td>
-					<td>
-						<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-						<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-					</td>
-                    		</tr>
-				<tr>
-					<td>
-						<span class="custom-checkbox">
-							<input type="checkbox" id="checkbox3" name="options[]" value="1">
-							<label for="checkbox3"></label>
-						</span>
-					</td>
-                        			<td>Maria Anders</td>
-                        			<td>mariaanders@mail.com</td>
-					<td>25, rue Lauriston, Paris, France</td>
-					<td>(503) 555-9931</td>
-					<td>122222</td>
-					<td>20 000 0000</td>
-                        			<td>
-                            				<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            				<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                       			 </td>
-                   			 </tr>
-                    		<tr>
-					<td>
-						<span class="custom-checkbox">
-							<input type="checkbox" id="checkbox4" name="options[]" value="1">
-							<label for="checkbox4"></label>
-						</span>
-					</td>
-					<td>Fran Wilson</td>
-					<td>franwilson@mail.com</td>
-					<td>C/ Araquil, 67, Madrid, Spain</td>
-					<td>(204) 619-5731</td>
-					<td>122222</td>
-					<td>20 000 0000</td>
-                        			<td>
-                            				<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            				<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        			</td>
-                    		</tr>					
-				<tr>
-					<td>
-						<span class="custom-checkbox">
-							<input type="checkbox" id="checkbox5" name="options[]" value="1">
-							<label for="checkbox5"></label>
-						</span>
-					</td>
-					<td>Martin Blank</td>
-					<td>martinblank@mail.com</td>
-					<td>Via Monte Bianco 34, Turin, Italy</td>
-					<td>(480) 631-2097</td>
-					<td>122222</td>
-					<td>20 000 0000</td>
-					<td>
-						<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-						<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-					</td>
-                    		</tr> 
+
+					<!-- Delete Modal HTML -->
+					<div id="deleteEmployeeModal" class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<form  action="server.php?id=<?=$id?>" method="POST">
+									<div class="modal-header">						
+										<h4 class="modal-title">Hamafa fanafody</h4>
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									</div>
+									<div class="modal-body">					
+										<p>Hofafana marina ve io fanafody io ?</p>
+										<p class="text-warning"><small>Tsy afaka averina intsony io raha voafafa an!.</small></p>
+									</div>
+									<div class="modal-footer">
+										<input type="button" class="btn btn-default" data-dismiss="modal" value="Aza fafana">
+										<input type="submit" class="btn btn-danger" value="Fafao">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+
+                    		</tr>	
+				<?php } ?>	
+				
                 		</tbody>
             	</table>
 	</div>
@@ -180,7 +176,7 @@ $(document).ready(function(){
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
+				<form action="server.php" method="POST">
 					<div class="modal-header">						
 						<h4 class="modal-title">Hampiditra fanafody</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -188,32 +184,26 @@ $(document).ready(function(){
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>Famatarana manokana</label>
-							<input type="text" class="form-control" required>
+							<input type="text" class="form-control" name ="ref" required>
 						</div>
 						<div class="form-group">
 							<label>Anarana</label>
-							<input type="text" class="form-control" required>
+							<input type="text" class="form-control"  name ="anarana" required>
 						</div>
 						<div class="form-group">
 							<label>Isan'ny fanafody</label>
-							<input type="text" class="form-control" required>
+							<input type="text" class="form-control" name="isa_amp" required>
 						</div>
-						<div class="form-group">
-							<label>Isan'ny voafandrika</label>
-							<input type="text" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Sisa</label>
-							<input type="text" class="form-control" required>
-						</div>
+						
 						<div class="form-group">
 							<label>Vidin'ny iray</label>
-							<input type="text" class="form-control" required>
+							<input type="text" class="form-control" name="vidin_irai" required>
 						</div>					
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Avereno">
-						<input type="submit" class="btn btn-success" value="Ampidiro">
+						<input type="submit" class="btn btn-success" name="ampidiro" value="Ampidiro">
+						<h4 class="modal-title"><?=$erreur?></h4>
 					</div>
 				</form>
 			</div>
@@ -234,11 +224,11 @@ $(document).ready(function(){
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>Famatarana manokana</label>
-							<input type="text" class="form-control" required>
+							<input type="text" class="form-control"  required>
 						</div>
 						<div class="form-group">
 							<label>Nom</label>
-							<input type="text" class="form-control" required>
+							<input type="text" class="form-control"  name="" required>
 						</div>
 						<div class="form-group">
 							<label>Nombre Produit</label>
@@ -267,27 +257,7 @@ $(document).ready(function(){
 	</div>
 	
 	
-	<!-- Delete Modal HTML -->
-	<div id="deleteEmployeeModal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form>
-					<div class="modal-header">						
-						<h4 class="modal-title">Hamafa fanafody</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">					
-						<p>Hofafana marina ve io fanafody io ?</p>
-						<p class="text-warning"><small>Tsy afaka averina intsony io raha voafafa an!.</small></p>
-					</div>
-					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Aza fafana">
-						<input type="submit" class="btn btn-danger" value="Fafao">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+	
 	
 	
 	<footer class="footer" data-background-color="black">
