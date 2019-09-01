@@ -14,6 +14,17 @@ if (isset($_POST['marina']))
           {
                     session_start();
                     $_SESSION['solonanarana'] = 	$_POST['solonanarana'];
+                    //misintona_insertion---------------------------------------------------------------------------------------------------------------------------------------
+                    $appel_misintona = $query->misintona();
+                    $tab = array();
+                    $i = 0;
+                    while($donne = $appel_misintona->fetch()){
+                              $tab[$i] = $donne;
+                              $i++;
+                    }
+                    $nbr_ligne = count($tab);
+                    $_SESSION["tab"] = $tab;
+                    $_SESSION["nbr"] = $nbr_ligne;
                     header('location:tableau.php');
 
           }
@@ -104,13 +115,7 @@ if (isset($_POST['ampidiro']))
 
 
 
-
-
-
-
-
-
-
+ 
 //deconnexion--------------------------------------------------------------------------------------------------
 if (isset($_GET['deconnection'])) {
           session_start();

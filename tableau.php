@@ -46,9 +46,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gestion de Pharmacie</title>
-<link rel="apple-touch-icon" sizes="76x76" href="public/img//add.jpeg">
-   <link rel="icon" type="image/png" href="public/img/add.jpeg">
+<title>Stock | Pharmacetica</title>
+<link rel="icon" type="image/png" href="public/img/pharmacie_icone-1.png">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="public/css/font-awesome.min.css">
@@ -135,15 +135,15 @@ $(document).ready(function(){
 					<td> <?=$tab[$i]['nom'] ?></td>
 					<td> <?=$tab[$i]['prix_unit'] ; echo $unit;?></td>
 					<td> </td>
-					<td> </td>
 					<td> <?=$tab[$i]['nombre'] ?></td>
-                        			<td>
-						<a href="server.php?id=<?=$id?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-						<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        			</td>
+					<td> <?=$tab[$i]['nombre'] ?></td>
+					<td>
+						<a class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+						<a href="#deleteEmployeeModal<?=$id?>" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+					</td>
 
 					<!-- Delete Modal HTML -->
-					<div id="deleteEmployeeModal" class="modal fade">
+					<div id="deleteEmployeeModal<?=$id?>" class="modal fade">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<form  action="server.php?id=<?=$id?>" method="POST">
