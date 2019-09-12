@@ -27,6 +27,11 @@
    <!-- CSS Just for demo purpose, don't include it in your project -->
    <link href="public/css/demo.css" rel="stylesheet" />
  </head>
+ <style>
+      body{
+        font-family: Poppins !important;
+      }
+ </style>
  
  <body class="index-page sidebar-collapse">
    
@@ -37,7 +42,7 @@
              <div class="card card-login">
                <form class="form" method="POST" action="server.php">
                  <div class="card-header card-header-primary text-center">
-                   <h4 class="" >Hiditra</h4>
+                   <h4 style="font-family: Poppins !important;" >Hiditra</h4>
                    
                  </div>
                  <p class="description text-center">Famantarana</p>
@@ -61,7 +66,7 @@
                    </div>
                  </div>
                  <div class="footer text-center">
-                   <button  class="btn btn-primary " type="submit" name="marina"> <b> Hamarino </b></button>
+                   <button  class="btn btn-primary " type="submit" name="marina" style="font-family: Poppins !important;" > Hamarino </button>
                    <p class="description text-center"><?= $erreur ?></p>
                  </div>
                </form>

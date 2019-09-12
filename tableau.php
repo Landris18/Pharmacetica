@@ -10,7 +10,9 @@
 	//mamafa---------------------------------------------------------------------------------------------------------------
 	if (isset($_GET['succes'])){
 		if ($_GET['succes'] == 'true') {
-			$succes = 'voafafa soa aman-tsara';
+			$succes = 'Voafafa soa aman-tsara';
+			$succesx = 'x';
+
 		}
 	}
 	//erreur reference----------------------------------------------------------------------------------------------------
@@ -48,9 +50,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stock | Pharmacetica</title>
 <link rel="icon" type="image/png" href="public/img/pharmacie_icone-1.png">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="public/css/font-awesome.min.css">
 <link rel="stylesheet" href="public/css/bootstrap.min.css">
 <link rel="stylesheet" href="public/css/pharmacie.css">
@@ -82,16 +83,25 @@ $(document).ready(function(){
 });
 </script>
 </head>
+
+<style>
+	body{
+		font-family: Poppins !important;
+	}
+
+</style>
+
 <body>
     	<div class="container">
+		<h5 style="text-align: center  !important; margin-top: 3%; color:#2ebc4f; font-weight:bold; " id="succ"><?=$succes?><span id ="succx" onclick=cacher() style="margin-left:1%; cursor: pointer; border:1px solid #2ebc4f; padding:5px; padding-right:11px;  padding-left:8px; border-radius:18px;"> <?=$succesx?></span></h5>
 		<div class="table-wrapper">
 			<div class="table-title">
 				<div class="row">
 					<div class="col-sm-6">
-					<h2>Ireo <b>Fanafody</b></h2>
+					<h2>Ireo Fanafody</h2>
 				</div>
 				<div class="col-sm-6">
-					<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Hampiditra fanafody</span></a>
+					<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal" onclick=cacher() ><i class="material-icons">&#xE147;</i> <span >Hampiditra fanafody</span></a>
 					<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Hamafa</span></a>						
 				</div>
 			</div>
@@ -106,7 +116,7 @@ $(document).ready(function(){
 							<label for="selectAll"></label>
 						</span>
 					</th>
-					<th>Référence</th>
+					<th>Famantarana</th>
 					<th>Anarana</th>
 					<th>Vidin'ny iray</th>
 					<th>Isan'ny voafandrika</th>
@@ -153,7 +163,7 @@ $(document).ready(function(){
 									</div>
 									<div class="modal-body">					
 										<p>Hofafana marina ve io fanafody io ?</p>
-										<p class="text-warning"><small>Tsy afaka averina intsony io raha voafafa an!.</small></p>
+										<p class="text-warning"><small>Tsy afaka averina intsony io raha voafafa !</small></p>
 									</div>
 									<div class="modal-footer">
 										<input type="button" class="btn btn-default" data-dismiss="modal" value="Aza fafana">
@@ -183,7 +193,7 @@ $(document).ready(function(){
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>Famatarana manokana</label>
+							<label>Famantarana</label>
 							<input type="text" class="form-control" name ="ref" required>
 						</div>
 						<div class="form-group">
@@ -272,7 +282,26 @@ $(document).ready(function(){
 			</div>
 	</footer>
 	
-	<button >  <a href ="server.php?deconnection"> DECONNEXION </a></button>
+	<button >  <a href ="server.php?deconnection"> Déconnexion </a></button>
+
+	<script>
+		function cacher() {
+			var su = document.getElementById('succ')
+			var sx = document.getElementById('succx')
+			su.style.display = 'inline'
+			sx.style.display = 'inline'
+			if (sx.style.display == 'inline') {
+				su.style.display = 'none'
+				sx.style.display = 'none'
+			}
+			else{
+				su.style.display = 'none'
+				sx.style.display = 'none'
+			}
+		}
+		
+	
+	</script>
 
 </body>
 </html>                           

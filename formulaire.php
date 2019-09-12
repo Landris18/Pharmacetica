@@ -15,11 +15,18 @@
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="public/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
    <!-- CSS Files -->
    <link href="public/css/material-kit.css?v=2.0.5" rel="stylesheet" />
    <!-- CSS Just for demo purpose, don't include it in your project -->
    <link href="public/css/demo.css" rel="stylesheet" />
  </head>
+
+ <style>
+    body{
+      font-family: Poppins !important;
+    }
+ </style>
  
  <body class="index-page sidebar-collapse">
    
@@ -30,7 +37,7 @@
              <div class="card card-login">
                <form class="form" method="" action="">
                  <div class="card-header card-header-primary text-center">
-                   <h4 class="">FIVIDIANANA</h4>
+                   <h4 class="">Fividianana</h4>
                  </div>
                  <p class="description text-center">Ity takelaka ity dia tsy maintsy fenoina tsara.</p>
                  <div class="card-body">
@@ -90,7 +97,7 @@
                         
                  </div>
                  <div class="footer text-center">
-                        <button class="btn btn-primary btn-round">
+                        <button class="btn btn-primary btn-round"  style="font-family: Poppins !important;" >
                                 <i class="material-icons">send</i> Alefa
                         </button>
                  </div>
