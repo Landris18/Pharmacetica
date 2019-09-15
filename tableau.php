@@ -10,7 +10,7 @@
 	//mamafa---------------------------------------------------------------------------------------------------------------
 	if (isset($_GET['succes'])){
 		if ($_GET['succes'] == 'true') {
-			$succes = 'Voafafa soa aman-tsara';
+			$succes = 'Voafafa tsara ilay fanafody';
 			$succesx = 'x';
 
 		}
@@ -51,12 +51,19 @@
 <title>Stock | Pharmacetica</title>
 <link rel="icon" type="image/png" href="public/img/pharmacie_icone-1.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <link rel="stylesheet" href="public/css/font-awesome.min.css">
 <link rel="stylesheet" href="public/css/bootstrap.min.css">
 <link rel="stylesheet" href="public/css/pharmacie.css">
 <script src="public/js/jquery.min.js"></script>
 <script src="public/js/bootstrap.min.js"></script>
+<script src="tableau.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	// Activate tooltip
@@ -82,6 +89,86 @@ $(document).ready(function(){
 	});
 });
 </script>
+
+<style>
+
+	.modal-confirm {		
+		color: #636363;
+		width: 325px;
+	}
+	.modal-confirm .modal-content {
+		padding: 20px;
+		border-radius: 5px;
+		border: none;
+	}
+	.modal-confirm .modal-header {
+		border-bottom: none;   
+        position: relative;
+	}
+	.modal-confirm h4 {
+		text-align: center;
+		font-size: 26px;
+		margin: 30px 0 -15px;
+	}
+	.modal-confirm .form-control, .modal-confirm .btn {
+		min-height: 40px;
+		border-radius: 3px; 
+	}
+	.modal-confirm .close {
+        position: absolute;
+		top: -5px;
+		right: -5px;
+	}	
+	.modal-confirm .modal-footer {
+		border: none;
+		text-align: center;
+		border-radius: 5px;
+		font-size: 13px;
+	}	
+	.modal-confirm .icon-box {
+		color: #fff;		
+		position: absolute;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		top: -70px;
+		width: 95px;
+		height: 95px;
+		border-radius: 50%;
+		z-index: 9;
+		background: #82ce34;
+		padding: 15px;
+		text-align: center;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+	}
+	.modal-confirm .icon-box i {
+		font-size: 58px;
+		position: relative;
+		top: 3px;
+	}
+	.modal-confirm.modal-dialog {
+		margin-top: 80px;
+	}
+    .modal-confirm .btn {
+        color: #fff;
+        border-radius: 4px;
+		background: #82ce34;
+		text-decoration: none;
+		transition: all 0.4s;
+        line-height: normal;
+        border: none;
+    }
+	.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+		background: #6fb32b;
+		outline: none;
+	}
+	.trigger-btn {
+		display: inline-block;
+		margin: 100px auto;
+	}
+
+</style>
+
 </head>
 
 <style>
@@ -91,9 +178,11 @@ $(document).ready(function(){
 
 </style>
 
-<body>
+<body onclick=pageb()>
+
+<!-- Modal HTML -->
+
     	<div class="container">
-		<h5 style="text-align: center  !important; margin-top: 3%; color:#2ebc4f; font-weight:bold; " id="succ"><?=$succes?><span id ="succx" onclick=cacher() style="margin-left:1%; cursor: pointer; border:1px solid #2ebc4f; padding:5px; padding-right:11px;  padding-left:8px; border-radius:18px;"> <?=$succesx?></span></h5>
 		<div class="table-wrapper">
 			<div class="table-title">
 				<div class="row">
@@ -101,8 +190,7 @@ $(document).ready(function(){
 					<h2>Ireo Fanafody</h2>
 				</div>
 				<div class="col-sm-6">
-					<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal" onclick=cacher() ><i class="material-icons">&#xE147;</i> <span >Hampiditra fanafody</span></a>
-					<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Hamafa</span></a>						
+					<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal" ><i class="material-icons">&#xE147;</i> <span >Hampiditra fanafody</span></a>						
 				</div>
 			</div>
 		</div>
@@ -110,12 +198,6 @@ $(document).ready(function(){
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th>
-						<span class="custom-checkbox">
-							<input type="checkbox" id="selectAll">
-							<label for="selectAll"></label>
-						</span>
-					</th>
 					<th>Famantarana</th>
 					<th>Anarana</th>
 					<th>Vidin'ny iray</th>
@@ -135,15 +217,9 @@ $(document).ready(function(){
 
 				?>
                     		<tr>
-					<td>
-						<span class="custom-checkbox">
-							<input type="checkbox" id="checkbox1" name="options[]" value="1">
-							<label for="checkbox1"></label>
-						</span>
-					</td>
 					<td> <?=$tab[$i]['id'] ?></td>
 					<td> <?=$tab[$i]['nom'] ?></td>
-					<td> <?=$tab[$i]['prix_unit'] ; echo $unit;?></td>
+					<td> <?=$tab[$i]['prix_unit'] ; echo' '; echo $unit;?></td>
 					<td> </td>
 					<td> <?=$tab[$i]['nombre'] ?></td>
 					<td> <?=$tab[$i]['nombre'] ?></td>
@@ -156,7 +232,7 @@ $(document).ready(function(){
 					<div id="deleteEmployeeModal<?=$id?>" class="modal fade">
 						<div class="modal-dialog">
 							<div class="modal-content">
-								<form  action="server.php?id=<?=$id?>" method="POST">
+								<form   value ="<?=$id?>"  method="POST" id="forfa">
 									<div class="modal-header">						
 										<h4 class="modal-title">Hamafa fanafody</h4>
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -166,8 +242,8 @@ $(document).ready(function(){
 										<p class="text-warning"><small>Tsy afaka averina intsony io raha voafafa !</small></p>
 									</div>
 									<div class="modal-footer">
-										<input type="button" class="btn btn-default" data-dismiss="modal" value="Aza fafana">
-										<input type="submit" class="btn btn-danger" value="Fafao">
+										<input type="button" class="btn btn-default" data-dismiss="modal" value="Hajanona">
+										<span ><input  id="<?=$id?>" type="button"  onclick="cacherform($(this).attr('id'))"  class="btn btn-danger" value="Fafana"  > </span>
 									</div>
 								</form>
 							</div>
@@ -211,15 +287,13 @@ $(document).ready(function(){
 						</div>					
 					</div>
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Avereno">
-						<input type="submit" class="btn btn-success" name="ampidiro" value="Ampidiro">
-						<h4 class="modal-title"><?=$erreur?></h4>
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Hajanona">
+						<input type="submit" class="btn btn-success" name="ampidiro" value="Ampidirina">
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	
 	
 	
 	<!-- Edit Modal HTML -->
@@ -265,9 +339,26 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
+
 	
-	
-	
+	<div id="myModal" class="modal fade">
+		<div class="modal-dialog modal-confirm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="icon-box" onclick=vita()>
+						<i class="material-icons">&#xE876;</i>
+					</div>				
+					<h4 class="" style="text-align: center !important">Vita!</h4>	
+				</div>
+				<div class="modal-body">
+					<p class="text-center"> Voafafa tsara ilay fanafody</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success btn-block" data-dismiss="modal" onclick=vita()>Okay</button>
+				</div>
+			</div>
+		</div>
+	</div>     
 	
 	
 	<footer class="footer" data-background-color="black">
@@ -276,32 +367,13 @@ $(document).ready(function(){
 				&copy;
 				<script>
 				  document.write(new Date().getFullYear())
-				</script>, edited by Aina Juno.
+				</script>, edited by Landris.
 				
 			  </div>
 			</div>
 	</footer>
 	
-	<button >  <a href ="server.php?deconnection"> Déconnexion </a></button>
-
-	<script>
-		function cacher() {
-			var su = document.getElementById('succ')
-			var sx = document.getElementById('succx')
-			su.style.display = 'inline'
-			sx.style.display = 'inline'
-			if (sx.style.display == 'inline') {
-				su.style.display = 'none'
-				sx.style.display = 'none'
-			}
-			else{
-				su.style.display = 'none'
-				sx.style.display = 'none'
-			}
-		}
-		
-	
-	</script>
+	<button> <a href="server.php?deconnection"> Déconnexion </a> </button>
 
 </body>
 </html>                           

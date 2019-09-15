@@ -103,10 +103,11 @@ if (isset($_POST['ampidiro']))
                               $tab[$i] = $donne;
                               $i++;
                     }
+                    echo true;
                     $nbr_ligne = count($tab);
                     $_SESSION["tab"] = $tab;
                     $_SESSION["nbr"] = $nbr_ligne;
-                    header('location:tableau.php?succes=true');
+                    
            }
  }
 
