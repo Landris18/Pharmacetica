@@ -51,7 +51,8 @@ if (isset($_POST['ampidiro']))
                         $appel_verif_refana = $query->verif_refana($ref, $anarana);
                         $cnt = $appel_verif_refana->rowCount();
                         if ($cnt > 0){
-                                header('location:tableau.php?erreur_ref_ana_mitov=true');
+                                echo "Efa misy io famantarana na io anarana io";
+                                // header('location:tableau.php?erreur_ref_ana_mitov=true');
                         }
                         elseif ($cnt == 0){
                                 if ( intval(($_POST['isa_amp'])) ) 
@@ -75,24 +76,27 @@ if (isset($_POST['ampidiro']))
                                                 $nbr_ligne = count($tab);
                                                 $_SESSION["tab"] = $tab;
                                                 $_SESSION["nbr"] = $nbr_ligne;
-                                                header("location:tableau.php");
+                                                echo true;
                                         }
                                         else{
-                                                header('location:tableau.php?erreur_vola=true');
+                                                echo "Hamarino tsara ny vola nampidirinao";
+                                                // header('location:tableau.php?erreur_vola=true');
                                         }
                                 }
                                 else{
-                                        header('location:tableau.php?erreur_isa=true');
+                                        echo "Hamarino tsara ny isan'ny fanafody nampidirinao";
+                                        // header('location:tableau.php?erreur_isa=true');
                                 }
                         }
                 }
                 else{
-                        header('location:tableau.php?erreur_reference_int=true');
+                        echo "Ny famantarana dia tokony isa";
+                        // header('location:tableau.php?erreur_reference_int=true');
                 }
         }
         else{
-                echo 'eeeee';
-                header('location:tableau.php?erreur=true');
+                echo "Tsy maintsy fenoina daholo!";
+                //header('location:tableau.php?erreur=true');
         }
 }
         

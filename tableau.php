@@ -106,12 +106,13 @@ $(document).ready(function(){
 
 <body onclick=pageb()>
 
-<!-- Modal HTML -->
 
 	<?php
 		gettype($err_jiab);
 		echo($err_jiab);
+		
 	?>
+
 
     	<div class="container">
 		<div class="table-wrapper">
@@ -183,17 +184,17 @@ $(document).ready(function(){
 
                     		</tr>	
 				<?php } ?>	
-				
-                		</tbody>
+                	</tbody>
             	</table>
 	</div>
-	
-	
+
+
+
 	<!-- Edit Modal HTML -->
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="server.php" method="POST">
+				<form action="server.php" method="POST"  id="forma">
 					<div class="modal-header">						
 						<h4 class="modal-title">Hampiditra fanafody</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -201,31 +202,78 @@ $(document).ready(function(){
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>Famantarana</label>
-							<input type="text" class="form-control" name ="ref" required>
+							<input type="text" id= "refer" class="form-control" name ="ref" required>
 						</div>
 						<div class="form-group">
 							<label>Anarana</label>
-							<input type="text" class="form-control"  name ="anarana" required>
+							<input type="text"  id="anar" class="form-control"  name ="anarana" required>
 						</div>
 						<div class="form-group">
 							<label>Isan'ny fanafody</label>
-							<input type="text" class="form-control" name="isa_amp" required>
+							<input type="text" id="isani" class="form-control" name="isa_amp" required>
 						</div>
 						
 						<div class="form-group">
 							<label>Vidin'ny iray</label>
-							<input type="text" class="form-control" name="vidin_irai" required>
+							<input type="text" id="vidini" class="form-control" name="vidin_irai" required>
 						</div>					
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Hajanona">
-						<input type="submit" class="btn btn-success" name="ampidiro" value="Ampidirina">
-						
+						<input type="button" onclick=ajoumed() class="btn btn-success" name="ampidiro" value="Ampidirina">
+					</div>
+					<div class="form-group">
+						<label style="color:red !important; margin-left:15% !important;" id="notis"></label>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+
+
+	<!-- Voafafa tsara ilay fanafody -->
+	<div id="myModal" class="modal fade">
+		<div class="modal-dialog modal-confirm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="icon-box" onclick=vita()>
+						<i class="material-icons">&#xE876;</i>
+					</div>				
+					<h4 class="" style="text-align: center !important">Vita!</h4>	
+				</div>
+				<div class="modal-body">
+					<p class="text-center"> Voafafa tsara ilay fanafody</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success btn-block" data-dismiss="modal" onclick=vita()>Okay</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Tafiditra tsara ilay fanafody -->
+	<div id="myModalt" class="modal fade">
+		<div class="modal-dialog modal-confirm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="icon-box" onclick=vita()>
+						<i class="material-icons">&#xE876;</i>
+					</div>				
+					<h4 class="" style="text-align: center !important">Vita!</h4>	
+				</div>
+				<div class="modal-body">
+					<p class="text-center"> Tafiditra tsara ilay fanafody</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success btn-block" data-dismiss="modal" onclick=vita()>Okay</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
 	
 	
 	<!-- Edit Modal HTML -->
@@ -272,25 +320,6 @@ $(document).ready(function(){
 		</div>
 	</div>
 
-	
-	<div id="myModal" class="modal fade">
-		<div class="modal-dialog modal-confirm">
-			<div class="modal-content">
-				<div class="modal-header">
-					<div class="icon-box" onclick=vita()>
-						<i class="material-icons">&#xE876;</i>
-					</div>				
-					<h4 class="" style="text-align: center !important">Vita!</h4>	
-				</div>
-				<div class="modal-body">
-					<p class="text-center"> Voafafa tsara ilay fanafody</p>
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-success btn-block" data-dismiss="modal" onclick=vita()>Okay</button>
-				</div>
-			</div>
-		</div>
-	</div>     
 	
 	
 	<footer class="footer" data-background-color="black">
