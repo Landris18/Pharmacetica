@@ -35,8 +35,12 @@ class Query_bdd extends connect_bdd{
                 $verif_refana =  $bdd->query("SELECT 1 from produit WHERE id = '$id' or nom = '$nom' ");  
                 return  $verif_refana;
         }
-       
-        
+        public function hanova_fanafody($id, $nbr, $puni){
+                $bdd = $this->dbconnect();
+                $hanov_f =  $bdd->query("UPDATE produit SET  nombre='$nbr', prix_unit='$puni' WHERE id = '$id' ");  
+                return  $hanov_f;
+        }
+
 }
 
 

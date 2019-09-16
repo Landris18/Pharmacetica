@@ -57,6 +57,41 @@ function ajoumed(){
 }
 
 
+//ajax modification des médicaments
+function modimed(val){
+        // var idv_v = document.getElementById('refer_v').value
+        // var anv_v = document.getElementById('anar_v').value
+        // var isv_v = document.getElementById('isani_v').value
+        // var viv_v = document.getElementById('vidin_v').value
+   
+        idv_v = $('#eModal' +val + ' #refer_v').val()
+        anv_v = $('#eModal' +val + ' #anar_v').val();
+        isv_v = $('#eModal' +val + ' #isani_v').val();
+        viv_v = $('#eModal' +val + ' #vidin_v').val();
+
+        
+        $.ajax({
+                type: 'POST',
+                url : 'server.php',
+                data : {manova:  1, ref_v : idv_v , anarana_v : anv_v, isa_amp_v : isv_v , vidin_irai_v : viv_v},
+                success: function(msg){
+                        if (msg == true){
+                                $('#eModal' + val ).modal('hide');
+                                $('#myModalh').modal('show');
+                        }
+                        else{
+                                $('#notis').html(msg);
+                        }
+                },
+                error:function(){
+                        $('#notis').html("Nisy olana");
+                        
+                }
+
+        });
+}
+
+
 ////Reload de page en cliquant sur le okay
 function vita(){
         window.location.reload()
@@ -65,7 +100,15 @@ function vita(){
 //Reload de page en cliquant sur le body
 function pageb(){
         var mod = document.getElementById('myModal')
-        if (mod.style.display == 'block'){
+        var modt = document.getElementById('myModalt')
+        var modh = document.getElementById('myModalh')
+        if (mod.style.display == 'block')  {
+                window.location.reload()
+        }
+        if (modt.style.display == 'block')  {
+                window.location.reload()
+        }
+        if (modh.style.display == 'block')  {
                 window.location.reload()
         }
         
