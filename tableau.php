@@ -1,5 +1,4 @@
 <?php
-
 	//erreur sur l'ajout----------------------------------------------------------------------------------------------------
 	require('connect_bdd.php');
 	if (isset($_GET['erreur'])){
@@ -16,29 +15,31 @@
 		}
 	}
 	//erreur reference----------------------------------------------------------------------------------------------------
-	if (isset($_GET['erreur_reference'])){
-		if ($_GET['erreur_reference'] == 'true') {
-			$err_ref = 'Hamarino tsara ny référence nampidirinao';
+	if (isset($_GET['erreur_ref_ana_mitov'])){
+		if ($_GET['erreur_ref_ana_mitov'] == 'true') {
+			$err_jiab = 'Efa misy io famantarana na io anarana io';
 		}
 	}
 	//erreur isa----------------------------------------------------------------------------------------------------------
 	if (isset($_GET['erreur_isa'])){
 		if ($_GET['erreur_isa'] == 'true') {
-			$err_isa = "Hamarino tsara ny isan'ny fanafody nampidirinao";
+			$err_jiab = "Hamarino tsara ny isan'ny fanafody nampidirinao";
 		}
 	}
 	//erreur vidy----------------------------------------------------------------------------------------------------------
 	if (isset($_GET['erreur_vola'])){
 		if ($_GET['erreur_vola'] == 'true') {
-			$err_vola = "Hamarino tsara ny vidin'ny fanafody nampidirinao";
+			$err_jiab = "Hamarino tsara ny vidin'ny fanafody nampidirinao";
 		}
 	}
-	
-
+	if (isset($_GET['erreur_reference_int'])){
+		if ($_GET['erreur_reference_int'] == 'true') {
+			$err_jiab = "Hamarino tsara ny vidin'ny fanafody nampidirinao";
+		}
+	}
 	//session_start--------------------------------------------------------------------------------------------------------
 	session_start();
 	if (isset($_SESSION['solonanarana'] )) {
-		
 ?>
 
 
@@ -61,6 +62,9 @@
 <link rel="stylesheet" href="public/css/font-awesome.min.css">
 <link rel="stylesheet" href="public/css/bootstrap.min.css">
 <link rel="stylesheet" href="public/css/pharmacie.css">
+
+<link rel="stylesheet" href="public/css/modal_succes_supp.css">
+
 <script src="public/js/jquery.min.js"></script>
 <script src="public/js/bootstrap.min.js"></script>
 <script src="tableau.js"></script>
@@ -90,84 +94,6 @@ $(document).ready(function(){
 });
 </script>
 
-<style>
-
-	.modal-confirm {		
-		color: #636363;
-		width: 325px;
-	}
-	.modal-confirm .modal-content {
-		padding: 20px;
-		border-radius: 5px;
-		border: none;
-	}
-	.modal-confirm .modal-header {
-		border-bottom: none;   
-        position: relative;
-	}
-	.modal-confirm h4 {
-		text-align: center;
-		font-size: 26px;
-		margin: 30px 0 -15px;
-	}
-	.modal-confirm .form-control, .modal-confirm .btn {
-		min-height: 40px;
-		border-radius: 3px; 
-	}
-	.modal-confirm .close {
-        position: absolute;
-		top: -5px;
-		right: -5px;
-	}	
-	.modal-confirm .modal-footer {
-		border: none;
-		text-align: center;
-		border-radius: 5px;
-		font-size: 13px;
-	}	
-	.modal-confirm .icon-box {
-		color: #fff;		
-		position: absolute;
-		margin: 0 auto;
-		left: 0;
-		right: 0;
-		top: -70px;
-		width: 95px;
-		height: 95px;
-		border-radius: 50%;
-		z-index: 9;
-		background: #82ce34;
-		padding: 15px;
-		text-align: center;
-		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-	}
-	.modal-confirm .icon-box i {
-		font-size: 58px;
-		position: relative;
-		top: 3px;
-	}
-	.modal-confirm.modal-dialog {
-		margin-top: 80px;
-	}
-    .modal-confirm .btn {
-        color: #fff;
-        border-radius: 4px;
-		background: #82ce34;
-		text-decoration: none;
-		transition: all 0.4s;
-        line-height: normal;
-        border: none;
-    }
-	.modal-confirm .btn:hover, .modal-confirm .btn:focus {
-		background: #6fb32b;
-		outline: none;
-	}
-	.trigger-btn {
-		display: inline-block;
-		margin: 100px auto;
-	}
-
-</style>
 
 </head>
 
@@ -181,6 +107,11 @@ $(document).ready(function(){
 <body onclick=pageb()>
 
 <!-- Modal HTML -->
+
+	<?php
+		gettype($err_jiab);
+		echo($err_jiab);
+	?>
 
     	<div class="container">
 		<div class="table-wrapper">
@@ -289,6 +220,7 @@ $(document).ready(function(){
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Hajanona">
 						<input type="submit" class="btn btn-success" name="ampidiro" value="Ampidirina">
+						
 					</div>
 				</form>
 			</div>

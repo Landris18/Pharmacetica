@@ -30,6 +30,13 @@ class Query_bdd extends connect_bdd{
                 $mamafa_fanafody =  $bdd->query( "DELETE from produit where id= '$id' ");   
                 return $mamafa_fanafody;
         }
+        public function verif_refana($id, $nom){
+                $bdd = $this->dbconnect();
+                $verif_refana =  $bdd->query("SELECT 1 from produit WHERE id = '$id' or nom = '$nom' ");  
+                return  $verif_refana;
+        }
+       
+        
 }
 
 
