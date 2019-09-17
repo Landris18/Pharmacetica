@@ -2,7 +2,7 @@
 
 class connect_bdd{
           protected function dbconnect(){
-                    $bdd = new PDO('mysql:host=localhost;dbname=Pharmacetica' ,'sserver', 'sserver') or die ('Not connected');
+                    $bdd = new PDO('mysql:host=localhost;dbname=Pharmacetica' ,'gaetan', 'gaetan') or die ('Not connected');
                     return $bdd;
           }
 }
