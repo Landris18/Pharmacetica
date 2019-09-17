@@ -69,7 +69,7 @@
 				</ul>
 				<form class="form-inline ml-auto">
 					<div class="form-group has-white">
-					<input type="text" class="form-control" placeholder="Tadiavo">
+						<input type="text" class="form-control" placeholder="Tadiavo">
 					</div>
 					<button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
 						<a href="#deleteEmployeeModal1"  data-toggle="modal"><i class="fa fa-search" style="color: #e91e93 !important;"> </i></a> 

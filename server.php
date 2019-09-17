@@ -101,6 +101,71 @@ if (isset($_POST['ampidiro']))
 }
 
 
+//Hamandrika fanafody----------------------------------------------------------------------------------------------------------------------------------
+if (isset($_POST['ampidiro']))
+{            
+        if  ((!empty($_POST['ref']) and (!empty($_POST['anarana']) and  (!empty($_POST['isa_amp']) and (!empty($_POST['vidin_irai']) )))))
+        {         
+                if ( intval(($_POST['ref'])) )
+                {
+                        $ref = ($_POST['ref']);
+                        $anarana = ($_POST['anarana']);
+
+                        $query = new Query_bdd;
+                        $appel_verif_refana = $query->verif_refana($ref, $anarana);
+                        $cnt = $appel_verif_refana->rowCount();
+                        if ($cnt > 0){
+                                echo "Efa misy io famantarana na io anarana io";
+                                // header('location:tableau.php?erreur_ref_ana_mitov=true');
+                        }
+                        elseif ($cnt == 0){
+                                if ( intval(($_POST['isa_amp'])) ) 
+                                {
+                                        if ( intval(($_POST['vidin_irai'])))  
+                                        {
+                                                $ref = ($_POST['ref']);
+                                                $anarana = ($_POST['anarana']);
+                                                $isa_amp = ($_POST['isa_amp']);
+                                                $vidin_irai = ($_POST['vidin_irai']);
+                                                $appel_insertion=$query->insertion($ref, $anarana, $isa_amp, $vidin_irai);
+                        
+                                                //misintona_insertion------------------------------------------------------------------------------------------------------------------------------------
+                                                $appel_misintona = $query->misintona();
+                                                $tab = array();
+                                                $i = 0;
+                                                while($donne = $appel_misintona->fetch()){
+                                                        $tab[$i] = $donne;
+                                                        $i++;
+                                                }
+                                                $nbr_ligne = count($tab);
+                                                $_SESSION["tab"] = $tab;
+                                                $_SESSION["nbr"] = $nbr_ligne;
+                                                echo true;
+                                        }
+                                        else{
+                                                echo "Hamarino tsara ny vola nampidirinao";
+                                                // header('location:tableau.php?erreur_vola=true');
+                                        }
+                                }
+                                else{
+                                        echo "Hamarino tsara ny isan'ny fanafody nampidirinao";
+                                        // header('location:tableau.php?erreur_isa=true');
+                                }
+                        }
+                }
+                else{
+                        echo "Ny famantarana dia tokony isa";
+                        // header('location:tableau.php?erreur_reference_int=true');
+                }
+        }
+        else{
+                echo "Tsy maintsy fenoina daholo!";
+                //header('location:tableau.php?erreur=true');
+        }
+}
+
+
+
 //Hanova fanafody-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if (isset($_POST['manova']))
 {               
@@ -179,6 +244,10 @@ if (isset($_POST['manova']))
                     
         }
 }
+
+
+
+//recherche de fanafody-----------------------------------------------------------------------------------------------------------------------------------------
 
  
  

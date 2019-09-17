@@ -40,7 +40,16 @@ class Query_bdd extends connect_bdd{
                 $hanov_f =  $bdd->query("UPDATE produit SET  nombre='$nbr', prix_unit='$puni' WHERE id = '$id' ");  
                 return  $hanov_f;
         }
-
+        public function hamandrika($id, $nbr, $puni){
+                $bdd = $this->dbconnect();
+                $hamandrika_f =  $bdd->query("UPDATE produit SET  nombre='$nbr', prix_unit='$puni' WHERE id = '$id' ");  
+                return  $hamandrika_f;
+        }
+        public function recherche($nom, $nbr, $puni){
+                $bdd = $this->dbconnect();
+                $mitady =  $bdd->query("SELECT nom, nombre, prix_unit from produit WHERE nom like '$nom%' ");  
+                return  $mitady;
+        }
 }
 
 
