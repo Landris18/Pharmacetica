@@ -8,7 +8,7 @@ function cacherform(id_am){
                         if (msg  == 1){
                         $('#deleteEmployeeModal' +   id_am ).modal('hide');
                         $('#myModal').modal('show');
-                       
+
                         }
                         else
                         {
@@ -19,7 +19,7 @@ function cacherform(id_am){
                         alert('erreur');
                 }
         });
-        
+
 }
 
 
@@ -31,10 +31,10 @@ function ajoumed(){
         var viv = document.getElementById('vidini')
 
         var idf = idv.value
-        var ana = anv.value 
-        var isa = isv.value 
+        var ana = anv.value
+        var isa = isv.value
         var vidin = viv.value
-        
+
         $.ajax({
                 type: 'POST',
                 url : 'server.php',
@@ -50,7 +50,7 @@ function ajoumed(){
                 },
                 error:function(){
                         $('#notis').html("Nisy olana");
-                        
+
                 }
 
         });
@@ -59,13 +59,13 @@ function ajoumed(){
 
 //ajax modification des médicaments
 function modimed(val){
-        
+
         idv_v = $('#eModal' +val + ' #refer_v').val()
         anv_v = $('#eModal' +val + ' #anar_v').val();
         isv_v = $('#eModal' +val + ' #isani_v').val();
         viv_v = $('#eModal' +val + ' #vidin_v').val();
 
-        
+
         $.ajax({
                 type: 'POST',
                 url : 'server.php',
@@ -81,7 +81,7 @@ function modimed(val){
                 },
                 error:function(){
                         $('#notis').html("Nisy olana");
-                        
+
                 }
 
         });
@@ -107,7 +107,7 @@ function pageb(){
         if (modh.style.display == 'block')  {
                 window.location.reload()
         }
-        
+
 }
 
 
@@ -122,7 +122,7 @@ function rechercheo(val){
                                 $('#vokany').append('<br>');
                                 for (i=0; i<ans[0].length ;i++){
                                 result = '<div class="form-control"> <label>' + ans[0][i]['nom'] + ' : ' +  ans[0][i]['prix_unit']  + ' Ar' + '</label></div>';
-                                
+
                                 $('#vokany').append(result);
 
                                 $('#modalvaliny').modal('show');
@@ -131,9 +131,48 @@ function rechercheo(val){
                 },
                 error:function(){
                         $('#notis').html("Nisy olana");
-                        
+
                 }
 
         });
 
+    }
+
+
+function commander(){
+  $.ajax({
+          type: 'POST',
+          url : 'server.php',
+          data : {fandrika:  1, an_mp:$('#an_mp').val() ,fan_mp: $('#fan_mp').val(), kara_mp: $('#kara_mp').val(), adr_mp: $('#adr_mp').val(), find_mp: $('#find_mp').val(), an_fn: $('#an_fn option:selected').val(), isa_fn: $('#isa_fn').val()},
+          success: function(rep){
+
+            if (rep == 'http://127.0.0.1/Pharma/pic.png'){
+                  html = "<p style='color:#f05f40;' > Opérations reussi  </p>";
+                  $('#an_mp').val('');
+                  $('#fan_mp').val('');
+                  $('#kara_mp').val('');
+                  $('#adr_mp').val('');
+                  $('#find_mp').val('');
+                  $('#isa_fn').val('');
+                  btn = "<input type='button' style='color:#640f91;' onclick=redirect('" + rep + "') value='Telecharger le QRCode de commande' />";
+                  $('#btnfarany').after(btn);
+                  $('#btnfarany').after(html);
+
+            }
+            else{
+              html = "<p style='color:red;' >" + rep + "</p>";
+              $('#btnfarany').after(html);
+            }
+          },
+          error:function(){
+                  $('#notis').html("Nisy olana");
+          }
+
+
+});
+}
+
+
+function redirect(val){
+  window.location = val;
 }

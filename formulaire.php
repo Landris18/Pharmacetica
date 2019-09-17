@@ -34,9 +34,9 @@ body{
 			<div class="row">
 				<div class="col-lg-4 col-md-6 ml-auto mr-auto">
 					<div class="card card-login">
-						
-						
-						<form class="form" method="POST" action="server.php">
+
+
+						<form class="form" >
 							<div class="card-header card-header-primary text-center">
 								<h4 class="">Famandrihana</h4>
 							</div>
@@ -49,7 +49,7 @@ body{
 											<i class="material-icons">account_box</i>
 										</span>
 									</div>
-									<input type="text" class="form-control" name="an_mp" placeholder="Anarana">
+									<input type="text" class="form-control" id="an_mp" placeholder="Anarana">
 								</div>
 
 								<div class="input-group">
@@ -58,7 +58,7 @@ body{
 											<i class="material-icons">account_box</i>
 										</span>
 									</div>
-									<input type="text" class="form-control" name="fan_mp" placeholder="Fanampinanarana">
+									<input type="text" class="form-control" id="fan_mp" placeholder="Fanampinanarana">
 								</div>
 
 								<div class="input-group">
@@ -67,7 +67,7 @@ body{
 											<i class="material-icons">account_box</i>
 										</span>
 									</div>
-									<input type="text" class="form-control" name="kara_mp" placeholder="Laharan'ny kara-panondro">
+									<input type="text" class="form-control" id="kara_mp" placeholder="Laharan'ny kara-panondro">
 								</div>
 
 								<div class="input-group">
@@ -76,7 +76,7 @@ body{
 											<i class="material-icons">room</i>
 										</span>
 									</div>
-									<input type="text" class="form-control" name="adr_mp" placeholder="Adiresy">
+									<input type="text" class="form-control" id="adr_mp" placeholder="Adiresy">
 								</div>
 
 								<div class="input-group">
@@ -85,7 +85,7 @@ body{
 											<i class="material-icons">call</i>
 										</span>
 									</div>
-									<input type="text" class="form-control" name="find_mp"placeholder="Finday">
+									<input type="text" class="form-control" id="find_mp"placeholder="Finday">
 								</div>
 
 								<div class="input-group">
@@ -95,7 +95,7 @@ body{
 										</span>
 									</div>
 
-									<select class="form-control" name="an_fn">
+									<select class="form-control" id="an_fn">
 										<?php
 											require('connect_bdd.php');
 											$query = new Query_bdd;
@@ -120,17 +120,17 @@ body{
 											<i class="material-icons">add_circle</i>
 										</span>
 									</div>
-									<input type="text" class="form-control" name="isa_fn" placeholder="Isan'ny fanafody hofandrihina">
+									<input type="text" class="form-control" id="isa_fn" placeholder="Isan'ny fanafody hofandrihina">
 								</div>
 
 							</div>
-							
+
 							<div class="footer text-center">
-								<button class="btn btn-primary btn-round"  type="submit" name="fandrika" style="font-family: Poppins !important;" >
+								<button id="btnfarany" class="btn btn-primary btn-round"  type="button" onclick=commander() name="fandrika" style="font-family: Poppins !important;" >
 									<i class="material-icons">send</i> Alefa
 								</button>
 							</div>
-						
+
 						</form>
 					</div>
 				</div>
@@ -162,6 +162,7 @@ body{
 	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 	<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 	<script src="public/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
+	<script src="tableau.js"></script>
 	<script>
 	$(document).ready(function() {
 		//init DateTimePickers
