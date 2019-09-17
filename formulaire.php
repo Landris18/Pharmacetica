@@ -103,29 +103,6 @@ body{
 								</div>
 
 
-								<select class="form-control" name="anar_fn">
-								<?php
-								require('connect_bdd.php');
-								$query = new Query_bdd;
-								$aseho = $query->ijery_fanafody();
-
-								$tab = array();
-								$i = 0;
-								while($donne = $aseho->fetch()){
-								?>
-								<option> <?=$donne['nom']?> </option>
-								<?php
-								$i++;
-								}
-								?>
-								</select>
-							</div>
-
-							<div class="input-group">
-								<div class="input-group-prepend">
-								<span class="input-group-text">
-									<i class="material-icons">add_circle</i>
-								</span>
 								<div class="input-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text">
