@@ -102,7 +102,7 @@ body{
 									</select>
 								</div>
 
-<<<<<<< HEAD
+
 								<select class="form-control" name="anar_fn">
 								<?php
 								require('connect_bdd.php');
@@ -126,7 +126,6 @@ body{
 								<span class="input-group-text">
 									<i class="material-icons">add_circle</i>
 								</span>
-=======
 								<div class="input-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text">
@@ -134,7 +133,7 @@ body{
 										</span>
 									</div>
 									<input type="text" class="form-control" name="isa_fn" placeholder="Isan'ny fanafody hofandrihina">
->>>>>>> b5ba85ab8858b509a6a0b522c0b88b62bf34c7ce
+
 								</div>
 
 							</div>
