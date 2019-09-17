@@ -101,70 +101,6 @@ if (isset($_POST['ampidiro']))
 }
 
 
-//Hamandrika fanafody----------------------------------------------------------------------------------------------------------------------------------
-if (isset($_POST['ampidiro']))
-{
-        if  ((!empty($_POST['ref']) and (!empty($_POST['anarana']) and  (!empty($_POST['isa_amp']) and (!empty($_POST['vidin_irai']) )))))
-        {
-                if ( intval(($_POST['ref'])) )
-                {
-                        $ref = ($_POST['ref']);
-                        $anarana = ($_POST['anarana']);
-
-                        $query = new Query_bdd;
-                        $appel_verif_refana = $query->verif_refana($ref, $anarana);
-                        $cnt = $appel_verif_refana->rowCount();
-                        if ($cnt > 0){
-                                echo "Efa misy io famantarana na io anarana io";
-                                // header('location:tableau.php?erreur_ref_ana_mitov=true');
-                        }
-                        elseif ($cnt == 0){
-                                if ( intval(($_POST['isa_amp'])) )
-                                {
-                                        if ( intval(($_POST['vidin_irai'])))
-                                        {
-                                                $ref = ($_POST['ref']);
-                                                $anarana = ($_POST['anarana']);
-                                                $isa_amp = ($_POST['isa_amp']);
-                                                $vidin_irai = ($_POST['vidin_irai']);
-                                                $appel_insertion=$query->insertion($ref, $anarana, $isa_amp, $vidin_irai);
-
-                                                //misintona_insertion------------------------------------------------------------------------------------------------------------------------------------
-                                                $appel_misintona = $query->misintona();
-                                                $tab = array();
-                                                $i = 0;
-                                                while($donne = $appel_misintona->fetch()){
-                                                        $tab[$i] = $donne;
-                                                        $i++;
-                                                }
-                                                $nbr_ligne = count($tab);
-                                                $_SESSION["tab"] = $tab;
-                                                $_SESSION["nbr"] = $nbr_ligne;
-                                                echo true;
-                                        }
-                                        else{
-                                                echo "Hamarino tsara ny vola nampidirinao";
-                                                // header('location:tableau.php?erreur_vola=true');
-                                        }
-                                }
-                                else{
-                                        echo "Hamarino tsara ny isan'ny fanafody nampidirinao";
-                                        // header('location:tableau.php?erreur_isa=true');
-                                }
-                        }
-                }
-                else{
-                        echo "Ny famantarana dia tokony isa";
-                        // header('location:tableau.php?erreur_reference_int=true');
-                }
-        }
-        else{
-                echo "Tsy maintsy fenoina daholo!";
-                //header('location:tableau.php?erreur=true');
-        }
-}
-
-
 
 //Hanova fanafody-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if (isset($_POST['manova']))
@@ -246,33 +182,21 @@ if (isset($_POST['manova']))
 }
 
 
-if (isset($_POST['ampidiro']))
-{
-              
-}
-
-
 //recherche de fanafody-----------------------------------------------------------------------------------------------------------------------------------------
 if (isset($_POST['btnmitad']))
 {
         if  ( (!empty($_POST['fanaf_recherche']) ))
         {
                 $fanafody = ($_POST['fanaf_recherche']);
-                
                 $query = new Query_bdd;
-
                 $appel_mitady = $query->recherche($fanafody);
-
                 $tabr = array();
                 $i = 0;
                 while($donne = $appel_mitady->fetch()){
                         $tabr[$i] = $donne;
                         $i++;
                 }
-
                 echo json_encode($tabr);
-
-                
         }
         else{
                 header('location:tableau.php?erreur_recherche=true');
@@ -281,13 +205,73 @@ if (isset($_POST['btnmitad']))
 
 
 
+//hamandrika fanafody-----------------------------------------------------------------------------------------------------------------------------------------------------------
+if (isset($_POST['fandrika']))
+{
+        if  ((!empty($_POST['an_mp']) and (!empty($_POST['fan_mp']) and  (!empty($_POST['kara_mp']) and (!empty($_POST['adr_mp']) and (!empty($_POST['find_mp']) and (!empty($_POST['an_fn']) and (!empty($_POST['isa_fn'])  ))))))))
+        {
+                if ( intval(($_POST['kara_mp'])))
+                {
+                        if ( intval(($_POST['find_mp'])))
+                        $an_mp = ($_POST['']);
+                        $anarana = ($_POST['anarana']);
+
+                        $query = new Query_bdd;
+                        $appel_verif_refana = $query->verif_refana($ref, $anarana);
+                        $cnt = $appel_verif_refana->rowCount();
+                        if ($cnt > 0){
+                                echo "Efa misy io famantarana na io anarana io";
+                                // header('location:tableau.php?erreur_ref_ana_mitov=true');
+                        }
+                        elseif ($cnt == 0){
+                                if ( intval(($_POST['isa_amp'])) )
+                                {
+                                        if ( intval(($_POST['vidin_irai'])))
+                                        {
+                                                $ref = ($_POST['ref']);
+                                                $anarana = ($_POST['anarana']);
+                                                $isa_amp = ($_POST['isa_amp']);
+                                                $vidin_irai = ($_POST['vidin_irai']);
+                                                $appel_insertion=$query->insertion($ref, $anarana, $isa_amp, $vidin_irai);
+
+                                                //misintona_insertion------------------------------------------------------------------------------------------------------------------------------------
+                                                $appel_misintona = $query->misintona();
+                                                $tab = array();
+                                                $i = 0;
+                                                while($donne = $appel_misintona->fetch()){
+                                                        $tab[$i] = $donne;
+                                                        $i++;
+                                                }
+                                                $nbr_ligne = count($tab);
+                                                $_SESSION["tab"] = $tab;
+                                                $_SESSION["nbr"] = $nbr_ligne;
+                                                echo true;
+                                        }
+                                        else{
+                                                echo "Hamarino tsara ny vola nampidirinao";
+                                                // header('location:tableau.php?erreur_vola=true');
+                                        }
+                                }
+                                else{
+                                        echo "Hamarino tsara ny isan'ny fanafody nampidirinao";
+                                        // header('location:tableau.php?erreur_isa=true');
+                                }
+                        }
+                }
+                else{
+                        echo "Ny famantarana dia tokony isa";
+                        // header('location:tableau.php?erreur_reference_int=true');
+                }
+        }
+        else{
+                echo "Tsy maintsy fenoina daholo!";
+                //header('location:tableau.php?erreur=true');
+        }
+}
 
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> b5ba85ab8858b509a6a0b522c0b88b62bf34c7ce
 //deconnexion----------------------------------------------------------------------------------------------------------------------------------
 if (isset($_GET['deconnection'])) {
         session_start();

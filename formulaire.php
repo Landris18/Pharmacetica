@@ -34,6 +34,8 @@ body{
 			<div class="row">
 				<div class="col-lg-4 col-md-6 ml-auto mr-auto">
 					<div class="card card-login">
+						
+						
 						<form class="form" method="POST" action="server.php">
 							<div class="card-header card-header-primary text-center">
 								<h4 class="">Famandrihana</h4>
@@ -47,7 +49,7 @@ body{
 											<i class="material-icons">account_box</i>
 										</span>
 									</div>
-									<input type="text" class="form-control" name="anar_mp" placeholder="Anaranao">
+									<input type="text" class="form-control" name="an_mp" placeholder="Anarana">
 								</div>
 
 								<div class="input-group">
@@ -56,7 +58,16 @@ body{
 											<i class="material-icons">account_box</i>
 										</span>
 									</div>
-									<input type="text" class="form-control" name="fanar_mp" placeholder="Fanampinanaranao">
+									<input type="text" class="form-control" name="fan_mp" placeholder="Fanampinanarana">
+								</div>
+
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											<i class="material-icons">account_box</i>
+										</span>
+									</div>
+									<input type="text" class="form-control" name="kara_mp" placeholder="Laharan'ny kara-panondro">
 								</div>
 
 								<div class="input-group">
@@ -65,7 +76,7 @@ body{
 											<i class="material-icons">room</i>
 										</span>
 									</div>
-									<input type="text" class="form-control" name="adir_mp" placeholder="Adiresy">
+									<input type="text" class="form-control" name="adr_mp" placeholder="Adiresy">
 								</div>
 
 								<div class="input-group">
@@ -84,20 +95,20 @@ body{
 										</span>
 									</div>
 
-									<select class="form-control" name="anar_fn">
+									<select class="form-control" name="an_fn">
 										<?php
-										require('connect_bdd.php');
-										$query = new Query_bdd;
-										$aseho = $query->ijery_fanafody();
+											require('connect_bdd.php');
+											$query = new Query_bdd;
+											$aseho = $query->ijery_fanafody();
 
-										$tab = array();
-										$i = 0;
-										while($donne = $aseho->fetch()){
-											?>
-											<option> <?=$donne['nom']?> </option>
-											<?php
-											$i++;
-										}
+											$tab = array();
+											$i = 0;
+											while($donne = $aseho->fetch()){
+												?>
+												<option> <?=$donne['nom']?> </option>
+												<?php
+												$i++;
+											}
 										?>
 									</select>
 								</div>
@@ -110,15 +121,16 @@ body{
 										</span>
 									</div>
 									<input type="text" class="form-control" name="isa_fn" placeholder="Isan'ny fanafody hofandrihina">
-
 								</div>
 
 							</div>
+							
 							<div class="footer text-center">
 								<button class="btn btn-primary btn-round"  type="submit" name="fandrika" style="font-family: Poppins !important;" >
 									<i class="material-icons">send</i> Alefa
 								</button>
 							</div>
+						
 						</form>
 					</div>
 				</div>
