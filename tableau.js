@@ -59,11 +59,7 @@ function ajoumed(){
 
 //ajax modification des médicaments
 function modimed(val){
-        // var idv_v = document.getElementById('refer_v').value
-        // var anv_v = document.getElementById('anar_v').value
-        // var isv_v = document.getElementById('isani_v').value
-        // var viv_v = document.getElementById('vidin_v').value
-   
+        
         idv_v = $('#eModal' +val + ' #refer_v').val()
         anv_v = $('#eModal' +val + ' #anar_v').val();
         isv_v = $('#eModal' +val + ' #isani_v').val();
@@ -112,4 +108,32 @@ function pageb(){
                 window.location.reload()
         }
         
+}
+
+
+function rechercheo(val){
+
+        $.ajax({
+                type: 'POST',
+                url : 'server.php',
+                data : {btnmitad:  1, fanaf_recherche: val},
+                success: function(rep){
+                                ans = new Array(JSON.parse(rep));
+                                $('#vokany').append('<br>');
+                                for (i=0; i<ans[0].length ;i++){
+                                result = '<div class="form-control"> <label>' + ans[0][i]['nom'] + ' : ' +  ans[0][i]['prix_unit']  + ' Ar' + '</label></div>';
+                                
+                                $('#vokany').append(result);
+
+                                $('#modalvaliny').modal('show');
+                                }
+
+                },
+                error:function(){
+                        $('#notis').html("Nisy olana");
+                        
+                }
+
+        });
+
 }
