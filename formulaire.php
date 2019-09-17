@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
 	<meta charset="utf-8" />
 	<link rel="apple-touch-icon" sizes="76x76" href="public/img/formulaire_icon.png">
@@ -25,10 +25,10 @@
       font-family: Poppins !important;
     }
  </style>
- 
+
  <body class="index-page sidebar-collapse">
-   
-     
+
+
      <div class="section section-signup page-header" style="background-image: url('public/img/medicine1.jpeg'); height: 90% !important; ">
        	<div class="container">
          		<div class="row">
@@ -40,7 +40,7 @@
                  					</div>
 							<p class="description text-center">Ity takelaka ity dia tsy maintsy fenoina tsara.</p>
 							<div class="card-body">
-							
+
 							<div class="input-group">
 								<div class="input-group-prepend">
 								<span class="input-group-text">
@@ -49,7 +49,7 @@
 								</div>
 								<input type="text" class="form-control" name="anar_mp" placeholder="Anaranao">
 							</div>
-                   
+
 							<div class="input-group">
 								<div class="input-group-prepend">
 								<span class="input-group-text">
@@ -83,7 +83,23 @@
 									<i class="material-icons">add_circle</i>
 								</span>
 								</div>
-								<input type="text" class="form-control" name="anar_fn" placeholder="Anaran'ny fanafody hofandrihina">
+
+                <select class="form-control" name="anar_fn">
+                <?php
+                require('connect_bdd.php');
+                $query = new Query_bdd;
+                $aseho = $query->ijery_fanafody();
+
+                $tab = array();
+                $i = 0;
+                while($donne = $aseho->fetch()){
+                ?>
+                  <option> <?=$donne['nom']?> </option>
+                <?php
+                $i++;
+                }
+                ?>
+                </select>
 							</div>
 
 							<div class="input-group">
@@ -94,7 +110,7 @@
 								</div>
 								<input type="text" class="form-control" name="isa_fn" placeholder="Isan'ny fanafody hofandrihina">
 							</div>
-                        
+
                  					</div>
                  					<div class="footer text-center">
 								<button class="btn btn-primary btn-round"  type="submit" style="font-family: Poppins !important;" >
@@ -107,7 +123,7 @@
          		</div>
        	</div>
      	</div>
-     
+
 	<footer class="footer" data-background-color="black">
 		<div class="container">
 			<div class="copyright float-right">
@@ -136,12 +152,12 @@
 			$(document).ready(function() {
 				//init DateTimePickers
 				materialKit.initFormExtendedDatetimepickers();
-			
+
 				// Sliders Init
 				materialKit.initSliders();
 			});
- 
- 
+
+
 			function scrollToDownload() {
 				if ($('.section-download').length != 0) {
 				$("html, body").animate({
@@ -154,4 +170,3 @@
 
 </body>
 </html>
- 
