@@ -68,7 +68,7 @@
 				<div class="collapse navbar-collapse" id="cola">
 				<ul class="navbar-nav">
 					<li class="nav-item active">
-					<a href="admin.php" class="" style="color:#fff"> Mpandrindra</a>
+					<a href="admin.php" class="" style="color:#fff" > Mpandrindra</a>
 					</li>
 					<li class="nav-item">
 					<a href="formulaire.php" class="" style="color:#fff; margin-left:60px !important;"> Hamandrika fanafody </a>
@@ -78,7 +78,7 @@
 				
 				
 				<!-- Champ fitadiavana fanafody--------------------------------------------------------------------------------------------------- -->
-				<form class="form-inline ml-auto" method="POST" action="server.php">
+				<form class="form-inline ml-auto">
 					<div class="form-group has-white">
 						<input type="text" id="champ_recherche"  class="form-control" name="fanaf_recherche" placeholder="Anarana fanafody">
 					</div>
@@ -95,100 +95,118 @@
 			</nav>
 			
 		<!--         carousel  -->
-		<div class="section" id="carousel">
-		<div class="container">
-			<div class="row">
-			<div class="col-md-8 mr-auto ml-auto">
-			<!-- Carousel Card -->
-			<div class="card card-raised card-carousel">
-				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-				<ol class="carousel-indicators">
-				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-				</ol>
-				<div class="carousel-inner" style= "height: 400px !important;">
-				<div class="carousel-item active">
-					<img class="d-block w-50" style= "margin-top: 85px !important;" src="public/img/paracetamol.png" alt="First slide">
-					<div class="carousel-caption d-none d-md-block">
-					<h4>
-					<i class="material-icons"></i> 
-					</h4>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-50" src="public/img/doliprane.jpeg" alt="Second slide">
-					<div class="carousel-caption d-none d-md-block">
-					<h4>
-					<i class="material-icons"></i> 
-					</h4>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-50" src="public/img/brufen.jpg" alt="Third slide">
-					<div class="carousel-caption d-none d-md-block">
-					<h4>
-					<i class="material-icons"></i> 
-					</h4>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-50" src="public/img/ibuprofene.jpeg" alt="Fourth slide">
-					<div class="carousel-caption d-none d-md-block">
-					<h4>
-						<i class="material-icons"></i>
-					</h4>
-					</div>
+			<div class="section" id="carousel">
+			<div class="container">
+				<div class="row">
+				<div class="col-md-8 mr-auto ml-auto">
+				<!-- Carousel Card -->
+				<div class="card card-raised card-carousel">
+					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+					<ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+					</ol>
+					<div class="carousel-inner" style= "height: 400px !important;">
+					<div class="carousel-item active">
+						<img class="d-block w-50" style= "margin-top: 85px !important;" src="public/img/paracetamol.png" alt="First slide">
+						<div class="carousel-caption d-none d-md-block">
+						<h4>
+						<i class="material-icons"></i> 
+						</h4>
+						</div>
 					</div>
 					<div class="carousel-item">
-					<img class="d-block w-50" src="public/img/paradic.jpeg" alt="Fifth slide">
-					<div class="carousel-caption d-none d-md-block">
+						<img class="d-block w-50" src="public/img/doliprane.jpeg" alt="Second slide">
+						<div class="carousel-caption d-none d-md-block">
 						<h4>
-						<i class="material-icons">
+						<i class="material-icons"></i> 
 						</h4>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-50" src="public/img/brufen.jpg" alt="Third slide">
+						<div class="carousel-caption d-none d-md-block">
+						<h4>
+						<i class="material-icons"></i> 
+						</h4>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-50" src="public/img/ibuprofene.jpeg" alt="Fourth slide">
+						<div class="carousel-caption d-none d-md-block">
+						<h4>
+							<i class="material-icons"></i>
+						</h4>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-50" src="public/img/spos.jpg" alt="Fourth slide">
+						<div class="carousel-caption d-none d-md-block">
+						<h4>
+							<i class="material-icons"></i>
+						</h4>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-50" src="public/img/advil.jpg" alt="Fourth slide">
+						<div class="carousel-caption d-none d-md-block">
+						<h4>
+							<i class="material-icons"></i>
+						</h4>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-50" src="public/img/paradic.jpeg" alt="Fifth slide">
+						<div class="carousel-caption d-none d-md-block">
+							<h4>
+							<i class="material-icons">
+							</h4>
+						</div>
 					</div>
 					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<i class="material-icons" ></i>
+						<span class="sr-only" >Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<i class="material-icons"></i>
+						<span class="sr-only">Next</span>
+					</a>
+					</div>
 				</div>
-				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-					<i class="material-icons"></i>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-					<i class="material-icons"></i>
-					<span class="sr-only">Next</span>
-				</a>
+				<!-- End Carousel Card -->
+				</div>
 				</div>
 			</div>
-			<!-- End Carousel Card -->
 			</div>
-			</div>
-		</div>
-		</div>
-		<!--         end carousel -->
+			<!--         end carousel -->
 			
 		</div>
 		</div>
 		
-		<!-- Search Modal HTML -->
+		
+		
+		
+		<!-- Voka-pikaraohampanafody--------------------------------------------------------------------------------------------------------------------- -->
 		<div id="modalvaliny" class="modal fade">
-			<div class="modal-dialog">
-			<div class="modal-content">
-			<form>
-				<div class="modal-header">						
-				<h4 id="vokany" class="modal-title">Voka-pikarohanam-panafody</h4>
-				
+			<div class="modal-dialog" style="width:27%";>
+				<div class="modal-content">
+					<form>
+						<div class="modal-header"  style="padding-left:5% !important;">						
+							<button  id="vokany" style="font-style:normal !important; padding-top:-2%; font-size: 20px !important; margin-left:2%; border-radius:5px; border:none !important; width:100%; background-image: linear-gradient(to bottom, #e91e63, #640f91);"></button>
+							<a><button  style="font-style:normal !important; padding-left:9px; padding-right:8px; font-size: 15px !important; margin-left:2%; border-radius:12px; border:none !important; background-image: linear-gradient(to bottom, #e91e63, #640f91); color:#fff;">x</button>
+						</div>
+					</form>
 				</div>
-				<div class="modal-body">					
-				
-				</div>
-			</form>
-			</div>
 			</div>
 		</div>
-			
+
+		
+		
 		
 		<footer class="footer" data-background-color="black">
 		<div class="container">
