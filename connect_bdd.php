@@ -2,7 +2,7 @@
 
 class connect_bdd{
           protected function dbconnect(){
-                    $bdd = new PDO('mysql:host=localhost;dbname=Pharmacetica' ,'gaetan', 'gaetan') or die ('Not connected');
+                    $bdd = new PDO('mysql:host=localhost;dbname=Pharmacetica' ,'sserver', 'sserver') or die ('Not connected');
                     return $bdd;
           }
 }
@@ -45,12 +45,13 @@ class Query_bdd extends connect_bdd{
                 $hamandrika_f =  $bdd->query("UPDATE produit SET  nombre='$nbr', prix_unit='$puni' WHERE id = '$id' ");
                 return  $hamandrika_f;
         }
-        public function recherche($nom, $nbr, $puni){
-                $bdd = $this->dbconnect();
-                $mitady =  $bdd->query("SELECT nom, nombre, prix_unit from produit WHERE nom like '$nom%' ");
-                return  $mitady;
+        public function recherche($nom){
+              $bdd = $this->dbconnect();
+              
+              $mitady =  $bdd->query("SELECT nom, prix_unit from produit WHERE  nom LIKE  '%$nom%' ");
+              
+              return  $mitady;
         }
-
         public function ijery_fanafody(){
                 $bdd = $this->dbconnect();
                 $ijery =  $bdd->query("SELECT nom from produit ");

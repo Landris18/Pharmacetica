@@ -84,22 +84,22 @@
 								</span>
 								</div>
 
-                <select class="form-control" name="anar_fn">
-                <?php
-                require('connect_bdd.php');
-                $query = new Query_bdd;
-                $aseho = $query->ijery_fanafody();
+								<select class="form-control" name="anar_fn">
+								<?php
+								require('connect_bdd.php');
+								$query = new Query_bdd;
+								$aseho = $query->ijery_fanafody();
 
-                $tab = array();
-                $i = 0;
-                while($donne = $aseho->fetch()){
-                ?>
-                  <option> <?=$donne['nom']?> </option>
-                <?php
-                $i++;
-                }
-                ?>
-                </select>
+								$tab = array();
+								$i = 0;
+								while($donne = $aseho->fetch()){
+								?>
+								<option> <?=$donne['nom']?> </option>
+								<?php
+								$i++;
+								}
+								?>
+								</select>
 							</div>
 
 							<div class="input-group">

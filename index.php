@@ -1,3 +1,9 @@
+<?php
+
+	require('connect_bdd.php');
+
+?>
+
 <!DOCTYPE html>
  <html lang="en">
  
@@ -7,7 +13,7 @@
 	<link rel="icon" type="image/png" href="public/img/pharmacie_icone-1.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>
-	Tongasoa | Pharmacetica
+		Tongasoa | Pharmacetica
 	</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 	<!--     Fonts and icons     -->
@@ -17,6 +23,7 @@
 	<link href="public/css/material-kit.css?v=2.0.5" rel="stylesheet" />
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link href="public/css/demo.css" rel="stylesheet" />
+	<script src="public/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
  </head>
 
  <style>
@@ -67,14 +74,21 @@
 					<a href="formulaire.php" class="" style="color:#fff; margin-left:60px !important;"> Hamandrika fanafody </a>
 					</li>
 				</ul>
-				<form class="form-inline ml-auto">
+				
+				
+				
+				<!-- Champ fitadiavana fanafody--------------------------------------------------------------------------------------------------- -->
+				<form class="form-inline ml-auto" method="POST" action="server.php">
 					<div class="form-group has-white">
-						<input type="text" class="form-control" placeholder="Tadiavo">
+						<input type="text" id="champ_recherche"  class="form-control" name="fanaf_recherche" placeholder="Anarana fanafody">
 					</div>
-					<button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
-						<a href="#deleteEmployeeModal1"  data-toggle="modal"><i class="fa fa-search" style="color: #e91e93 !important;"> </i></a> 
+					<button type="button" onclick=rechercheo($('#champ_recherche').val()) name="btnmitad"  class="btn btn-white btn-raised btn-fab btn-round">
+						<i class="fa fa-search" style="color: #e91e93 !important;"> </i> 
 					</button>
 				</form>
+				
+				
+				
 				</div>
 				
 				</div>
@@ -139,12 +153,12 @@
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-				<i class="material-icons"></i>
-				<span class="sr-only">Previous</span>
+					<i class="material-icons"></i>
+					<span class="sr-only">Previous</span>
 				</a>
 				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-				<i class="material-icons"></i>
-				<span class="sr-only">Next</span>
+					<i class="material-icons"></i>
+					<span class="sr-only">Next</span>
 				</a>
 				</div>
 			</div>
@@ -159,12 +173,12 @@
 		</div>
 		
 		<!-- Search Modal HTML -->
-			<div id="deleteEmployeeModal1" class="modal fade">
+		<div id="modalvaliny" class="modal fade">
 			<div class="modal-dialog">
 			<div class="modal-content">
 			<form>
 				<div class="modal-header">						
-				<h4 class="modal-title">Voka-pikarohana</h4>
+				<h4 id="vokany" class="modal-title">Voka-pikarohanam-panafody</h4>
 				
 				</div>
 				<div class="modal-body">					
@@ -197,10 +211,9 @@
 		<script src="public/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
 		<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 		<script src="public/js/plugins/nouislider.min.js" type="text/javascript"></script>
-		<!--  Google Maps Plugin    -->
-		<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 		<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-		<script src="public/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
+		
+		<script src="tableau.js" type="text/javascript"></script>
 		<script>
 		$(document).ready(function() {
 			//init DateTimePickers

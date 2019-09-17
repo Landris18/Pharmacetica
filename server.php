@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require('connect_bdd.php');
 session_start();
@@ -39,9 +39,9 @@ if (isset($_POST['marina']))
 
 //Ajout de médicaments-------------------------------------------------------------------------------------------------------------------------------------------------
 if (isset($_POST['ampidiro']))
-{            
+{
         if  ((!empty($_POST['ref']) and (!empty($_POST['anarana']) and  (!empty($_POST['isa_amp']) and (!empty($_POST['vidin_irai']) )))))
-        {         
+        {
                 if ( intval(($_POST['ref'])) )
                 {
                         $ref = ($_POST['ref']);
@@ -55,16 +55,16 @@ if (isset($_POST['ampidiro']))
                                 // header('location:tableau.php?erreur_ref_ana_mitov=true');
                         }
                         elseif ($cnt == 0){
-                                if ( intval(($_POST['isa_amp'])) ) 
+                                if ( intval(($_POST['isa_amp'])) )
                                 {
-                                        if ( intval(($_POST['vidin_irai'])))  
+                                        if ( intval(($_POST['vidin_irai'])))
                                         {
                                                 $ref = ($_POST['ref']);
                                                 $anarana = ($_POST['anarana']);
                                                 $isa_amp = ($_POST['isa_amp']);
                                                 $vidin_irai = ($_POST['vidin_irai']);
                                                 $appel_insertion=$query->insertion($ref, $anarana, $isa_amp, $vidin_irai);
-                        
+
                                                 //misintona_insertion------------------------------------------------------------------------------------------------------------------------------------
                                                 $appel_misintona = $query->misintona();
                                                 $tab = array();
@@ -103,9 +103,9 @@ if (isset($_POST['ampidiro']))
 
 //Hamandrika fanafody----------------------------------------------------------------------------------------------------------------------------------
 if (isset($_POST['ampidiro']))
-{            
+{
         if  ((!empty($_POST['ref']) and (!empty($_POST['anarana']) and  (!empty($_POST['isa_amp']) and (!empty($_POST['vidin_irai']) )))))
-        {         
+        {
                 if ( intval(($_POST['ref'])) )
                 {
                         $ref = ($_POST['ref']);
@@ -119,16 +119,16 @@ if (isset($_POST['ampidiro']))
                                 // header('location:tableau.php?erreur_ref_ana_mitov=true');
                         }
                         elseif ($cnt == 0){
-                                if ( intval(($_POST['isa_amp'])) ) 
+                                if ( intval(($_POST['isa_amp'])) )
                                 {
-                                        if ( intval(($_POST['vidin_irai'])))  
+                                        if ( intval(($_POST['vidin_irai'])))
                                         {
                                                 $ref = ($_POST['ref']);
                                                 $anarana = ($_POST['anarana']);
                                                 $isa_amp = ($_POST['isa_amp']);
                                                 $vidin_irai = ($_POST['vidin_irai']);
                                                 $appel_insertion=$query->insertion($ref, $anarana, $isa_amp, $vidin_irai);
-                        
+
                                                 //misintona_insertion------------------------------------------------------------------------------------------------------------------------------------
                                                 $appel_misintona = $query->misintona();
                                                 $tab = array();
@@ -168,19 +168,19 @@ if (isset($_POST['ampidiro']))
 
 //Hanova fanafody-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if (isset($_POST['manova']))
-{               
+{
 
         if  ((!empty($_POST['ref_v']) and (!empty($_POST['anarana_v']) and  (!empty($_POST['isa_amp_v']) and (!empty($_POST['vidin_irai_v']) )))))
-        {        
-              
+        {
+
                 $ref_v = ($_POST['ref_v']);
                 $anarana_v = ($_POST['anarana_v']);
 
-                
-                
-                if ( intval(($_POST['isa_amp_v'])) ) 
+
+
+                if ( intval(($_POST['isa_amp_v'])) )
                 {
-                        if ( intval(($_POST['vidin_irai_v'])))  
+                        if ( intval(($_POST['vidin_irai_v'])))
                         {
                                 $ref_v = ($_POST['ref_v']);
                                 $anarana_v = ($_POST['anarana_v']);
@@ -217,7 +217,7 @@ if (isset($_POST['manova']))
                 //header('location:tableau.php?erreur=true');
         }
 }
-        
+
 
 
  //hamafa-------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -241,16 +241,43 @@ if (isset($_POST['manova']))
         $nbr_ligne = count($tab);
         $_SESSION["tab"] = $tab;
         $_SESSION["nbr"] = $nbr_ligne;
-                    
+
         }
 }
 
 
 
 //recherche de fanafody-----------------------------------------------------------------------------------------------------------------------------------------
+if (isset($_POST['btnmitad']))
+{
+        if  ( (!empty($_POST['fanaf_recherche']) ))
+        {
+                $fanafody = ($_POST['fanaf_recherche']);
+                
+                $query = new Query_bdd;
 
- 
- 
+                $appel_mitady = $query->recherche($fanafody);
+
+                $tabr = array();
+                $i = 0;
+                while($donne = $appel_mitady->fetch()){
+                        $tabr[$i] = $donne;
+                        $i++;
+                }
+
+                echo json_encode($tabr);
+
+                
+        }
+        else{
+                header('location:tableau.php?erreur_recherche=true');
+        }
+}
+
+
+
+
+
 //deconnexion----------------------------------------------------------------------------------------------------------------------------------
 if (isset($_GET['deconnection'])) {
         session_start();
