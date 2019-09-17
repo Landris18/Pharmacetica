@@ -121,7 +121,8 @@ $(document).ready(function(){
 					<h2>Ireo Fanafody</h2>
 				</div>
 				<div class="col-sm-6">
-					<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal" ><i class="material-icons">&#xE147;</i> <span >Hampiditra fanafody</span></a>						
+					<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal" ><i class="material-icons">&#xE147;</i> <span >Hampiditra fanafody</span></a>
+											
 				</div>
 			</div>
 		</div>
