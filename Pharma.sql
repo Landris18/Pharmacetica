@@ -1,8 +1,8 @@
--- MySQL dump 10.17  Distrib 10.3.17-MariaDB, for debian-linux-gnu (x86_64)
+-- MariaDB dump 10.17  Distrib 10.4.7-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: Pharmacetica
 -- ------------------------------------------------------
--- Server version	10.3.17-MariaDB-1
+-- Server version	10.4.7-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -108,7 +108,9 @@ CREATE TABLE `produit` (
   `nombre_disponible` int(11) DEFAULT NULL,
   `nombre_commande` int(11) DEFAULT NULL,
   `nombre` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nom` (`nom`),
+  UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -118,7 +120,7 @@ CREATE TABLE `produit` (
 
 LOCK TABLES `produit` WRITE;
 /*!40000 ALTER TABLE `produit` DISABLE KEYS */;
-INSERT INTO `produit` VALUES (8565,'Sirop B12',50000,NULL,NULL,2),(582332,'Nivaquine',50,NULL,NULL,25);
+INSERT INTO `produit` VALUES (1,'Nivaquinem',255,NULL,NULL,52),(2,'mmm',4444,NULL,NULL,585),(10,'cvb',4444,NULL,NULL,550000),(243,'fefef',454,NULL,NULL,8451),(5475,'french',44,NULL,NULL,55),(10000,'alcool',4545,NULL,NULL,5855555),(20136,'kali linux',2588,NULL,NULL,585),(20745,'Jamala',55,NULL,NULL,45878),(45455,'Nivaquine',4545,NULL,NULL,55),(45874,'rfrffrfrfv',4444,NULL,NULL,55),(56665,'gfhf',4444,NULL,NULL,42),(201201,'huindddd',4444,NULL,NULL,55),(256899,'Ataov matotra',55,NULL,NULL,5454),(258269,'moly',9,NULL,NULL,555558),(363939,'gollolog',55,NULL,NULL,585),(696555,'huikokt',4444000,NULL,NULL,5454),(1478965,'ffgffaaaa',55,NULL,NULL,55),(5525265,'hyhy',4444,NULL,NULL,55),(5858585,'killall',98989,NULL,NULL,5445),(23214587,'nitrogene',4545,NULL,NULL,5454),(25252852,'nolopoiuy',4545,NULL,NULL,5454),(44557855,'grgrgr',4444,NULL,NULL,55),(59595959,'poltic',52554700,NULL,NULL,58546953),(98564799,'sirop',98989,NULL,NULL,585),(454555555,'Nivaquinef',4444,NULL,NULL,55),(454557888,'Nivaquineygh',4444,NULL,NULL,5454);
 /*!40000 ALTER TABLE `produit` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -131,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-03 13:17:37
+-- Dump completed on 2019-09-17  6:54:08
