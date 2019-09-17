@@ -108,14 +108,11 @@ function pageb(){
         if (modh.style.display == 'block')  {
                 window.location.reload()
         }
-<<<<<<< HEAD
 
-=======
         if (modr.style.display == 'block') {
                 window.location.reload()
         }
-        
->>>>>>> aba3daecd01ee6281cbe1dcf7e1ab3c6bea30085
+
 }
 
 
@@ -128,14 +125,9 @@ function rechercheo(val){
                 success: function(rep){
                                 ans = new Array(JSON.parse(rep));
                                 $('#vokany').append('<br>');
-                                for (i=0; i<ans[0].length ;i++){
-<<<<<<< HEAD
-                                result = '<div class="form-control"> <label>' + ans[0][i]['nom'] + ' : ' +  ans[0][i]['prix_unit']  + ' Ar' + '</label></div>';
 
-=======
                                 result = '<hr><p style="color:#fff !important; font-family: Poppins !important; font-size:15px; font-weight:600; padding-left:3% !important;">' + ans[0][i]['nom'] + ' : ' +  ans[0][i]['prix_unit']  + ' Ar' + '</p></hr>';
-                                
->>>>>>> aba3daecd01ee6281cbe1dcf7e1ab3c6bea30085
+
                                 $('#vokany').append(result);
 
                                 $('#modalvaliny').modal('show');
