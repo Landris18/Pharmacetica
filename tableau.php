@@ -71,19 +71,19 @@
 $(document).ready(function(){
 	// Activate tooltip
 	$('[data-toggle="tooltip"]').tooltip();
-	
+
 	// Select/Deselect checkboxes
 	var checkbox = $('table tbody input[type="checkbox"]');
 	$("#selectAll").click(function(){
 		if(this.checked){
 			checkbox.each(function(){
-				this.checked = true;                        
+				this.checked = true;
 			});
 		} else{
 			checkbox.each(function(){
-				this.checked = false;                        
+				this.checked = false;
 			});
-		} 
+		}
 	});
 	checkbox.click(function(){
 		if(!this.checked){
@@ -106,6 +106,16 @@ $(document).ready(function(){
 <body onclick=pageb()>
 
 
+<<<<<<< HEAD
+=======
+	<?php
+		gettype($err_jiab);
+		echo($err_jiab);
+
+	?>
+
+
+>>>>>>> 79f658af49ee9d4d466415fb72a3041f2f0d0b7a
     	<div class="container">
 		<div class="table-wrapper">
 			<div class="table-title">
@@ -115,11 +125,12 @@ $(document).ready(function(){
 				</div>
 				<div class="col-sm-6">
 					<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal" ><i class="material-icons">&#xE147;</i> <span >Hampiditra fanafody</span></a>
-											
+					<a href="upload.html" class="btn btn-success" ><i class="material-icons">&#xE147;</i> <span >Varotra </span></a>
+
 				</div>
 			</div>
 		</div>
-          
+
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
@@ -133,7 +144,7 @@ $(document).ready(function(){
 				</tr>
 			</thead>
 			<tbody>
-				<?php 
+				<?php
 
 				$tab = $_SESSION["tab"] ;
 				$unit = 'Ar';
@@ -162,11 +173,11 @@ $(document).ready(function(){
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<form value ="<?=$id?>"  method="POST" id="forfa">
-									<div class="modal-header">						
+									<div class="modal-header">
 										<h4 class="modal-title">Hamafa fanafody</h4>
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 									</div>
-									<div class="modal-body">					
+									<div class="modal-body">
 										<p>Hofafana marina ve io fanafody io ?</p>
 										<p class="text-warning"><small>Tsy afaka averina intsony io raha voafafa !</small></p>
 									</div>
@@ -185,11 +196,11 @@ $(document).ready(function(){
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<form id='mod<?=$id?>'>
-									<div class="modal-header">						
+									<div class="modal-header">
 										<h4 class="modal-title">Hanova fanafody</h4>
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 									</div>
-									<div class="modal-body">					
+									<div class="modal-body">
 										<div class="form-group">
 											<label>Famantarana</label>
 											<input type="text"  class="form-control" id="refer_v" disabled="disabled" name ="ref_v" value="<?=$id?>" required>
@@ -205,7 +216,7 @@ $(document).ready(function(){
 										<div class="form-group">
 											<label>Vidin'ny iray</label>
 											<input type="text" class="form-control" id="vidin_v" name="vidin_irai_v" value="<?=$prix_unit?>" required>
-										</div>					
+										</div>
 									</div>
 									<div class="modal-footer">
 										<input type="button" class="btn btn-default" data-dismiss="modal" value="Hajanona">
@@ -219,9 +230,9 @@ $(document).ready(function(){
 						</div>
 					</div>
 
-                    		
-				</tr>	
-				<?php } ?>	
+
+				</tr>
+				<?php } ?>
                 	</tbody>
             	</table>
 	</div>
@@ -233,11 +244,11 @@ $(document).ready(function(){
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form action="server.php" method="POST"  id="forma">
-					<div class="modal-header">						
+					<div class="modal-header">
 						<h4 class="modal-title">Hampiditra fanafody</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
-					<div class="modal-body">					
+					<div class="modal-body">
 						<div class="form-group">
 							<label>Famantarana</label>
 							<input type="text" id= "refer" class="form-control" name ="ref" required>
@@ -250,11 +261,11 @@ $(document).ready(function(){
 							<label>Isan'ny fanafody</label>
 							<input type="text" id="isani" class="form-control" name="isa_amp" required>
 						</div>
-						
+
 						<div class="form-group">
 							<label>Vidin'ny iray</label>
 							<input type="text" id="vidini" class="form-control" name="vidin_irai" required>
-						</div>					
+						</div>
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Hajanona">
@@ -270,7 +281,7 @@ $(document).ready(function(){
 
 
 
-	
+
 	<!-- Voafafa tsara ilay fanafody -->
 	<div id="myModal" class="modal fade">
 		<div class="modal-dialog modal-confirm">
@@ -278,8 +289,8 @@ $(document).ready(function(){
 				<div class="modal-header">
 					<div class="icon-box" onclick=vita()>
 						<i class="material-icons">&#xE876;</i>
-					</div>				
-					<h4 class="" style="text-align: center !important">Vita!</h4>	
+					</div>
+					<h4 class="" style="text-align: center !important">Vita!</h4>
 				</div>
 				<div class="modal-body">
 					<p class="text-center"> Voafafa tsara ilay fanafody</p>
@@ -300,8 +311,8 @@ $(document).ready(function(){
 				<div class="modal-header">
 					<div class="icon-box" onclick=vita()>
 						<i class="material-icons">&#xE876;</i>
-					</div>				
-					<h4 class="" style="text-align: center !important">Vita!</h4>	
+					</div>
+					<h4 class="" style="text-align: center !important">Vita!</h4>
 				</div>
 				<div class="modal-body">
 					<p class="text-center"> Tafiditra tsara ilay fanafody</p>
@@ -320,8 +331,8 @@ $(document).ready(function(){
 				<div class="modal-header">
 					<div class="icon-box" onclick=vita()>
 						<i class="material-icons">&#xE876;</i>
-					</div>				
-					<h4 class="" style="text-align: center !important">Vita!</h4>	
+					</div>
+					<h4 class="" style="text-align: center !important">Vita!</h4>
 				</div>
 				<div class="modal-body">
 					<p class="text-center"> Voaova tsara ilay fanafody</p>
@@ -333,8 +344,8 @@ $(document).ready(function(){
 		</div>
 	</div>
 
-	
-	
+
+
 	<footer class="footer" data-background-color="black">
 		<div class="container">
 			<div class="copyright float-right">
@@ -345,15 +356,15 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</footer>
-	
-	
+
+
 	<button> <a href="server.php?deconnection"> Déconnexion </a> </button>
 	<script src="tableau.js"></script>
 </body>
 
-</html>                           
+</html>
 
-<?php   
-} 
+<?php
+}
 
 ?>

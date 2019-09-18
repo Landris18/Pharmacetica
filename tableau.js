@@ -131,7 +131,6 @@ function rechercheo(val){
                                 $('#vokany').append(result);
 
                                 $('#modalvaliny').modal('show');
-                                }
 
                 },
                 error:function(){

@@ -4,14 +4,20 @@ $oFileInfos = $_FILES["fichier_image"];
                 $pdp_name = str_replace(' ', '_', $pdp_name);
                 $pdp_temporaire = $oFileInfos["tmp_name"];
                 $code_erreur = $oFileInfos["error"];
-                $destination = "/var/www/html/stockage/$pdp_name";
+                $destination = "./stockage/pic.png";
 
 
                 switch($code_erreur)
     {
         case UPLOAD_ERR_OK:
             if(copy($pdp_temporaire, $destination)){
-                $verify_insertion = $query_bdd->insertion_fichier_pdp($id, $pdp_name, $action);
+                //$verify_insertion = $query_bdd->insertion_fichier_pdp($id, $pdp_name, $action);
+                require('connect_bdd.php');
+
+                $query = new Query_bdd();
+                $decode = exec('python qrd.py');
+                 echo $decode;
+
             }
             else{
                 throw new Exception("Erreur copie fichier");
@@ -38,6 +44,7 @@ $oFileInfos = $_FILES["fichier_image"];
     }
     if($verify_insertion === false){
         throw new Exception("Erreur insertion fichier");
+        echo 'allo';
     }
     else{
         echo "Succed";
