@@ -106,13 +106,6 @@ $(document).ready(function(){
 <body onclick=pageb()>
 
 
-	<?php
-		gettype($err_jiab);
-		echo($err_jiab);
-		
-	?>
-
-
     	<div class="container">
 		<div class="table-wrapper">
 			<div class="table-title">
@@ -149,13 +142,14 @@ $(document).ready(function(){
 					$nom = $tab[$i]['nom'];
 					$prix_unit = $tab[$i]['prix_unit'];
 					$nombre = $tab[$i]['nombre'];
+					$nc = $tab[$i]['nombre_commande'];
 
 				?>
                     		<tr>
 					<td> <?=$tab[$i]['id'] ?></td>
 					<td> <?=$tab[$i]['nom'] ?></td>
 					<td> <?=$tab[$i]['prix_unit'] ; echo' '; echo $unit;?></td>
-					<td> </td>
+					<td> <?=$tab[$i]['nombre_commande'] ?></td>
 					<td> <?=$tab[$i]['nombre'] ?></td>
 					<td> <?=$tab[$i]['nombre'] ?></td>
 					<td>

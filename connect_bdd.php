@@ -2,7 +2,7 @@
 
 class connect_bdd{
           protected function dbconnect(){
-                    $bdd = new PDO('mysql:host=localhost;dbname=Pharmacetica' ,'gaetan', 'gaetan') or die ('Not connected');
+                    $bdd = new PDO('mysql:host=localhost;dbname=Pharmacetica' ,'sserver', 'sserver') or die ('Not connected');
                     return $bdd;
           }
 }
@@ -22,7 +22,7 @@ class Query_bdd extends connect_bdd{
         }
         public function misintona() {
                 $bdd = $this->dbconnect();
-                $misintona_fanafody =  $bdd->query( "SELECT  id, nom, prix_unit, nombre from produit");
+                $misintona_fanafody =  $bdd->query( "SELECT  id, nom, prix_unit, nombre_commande, nombre from produit");
                 return $misintona_fanafody;
         }
         public function mamafa($id) {
