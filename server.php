@@ -223,32 +223,37 @@ if (isset($_POST['fandrika']))
                                         $find_mp = ($_POST['find_mp']);
                                         $an_fn = ($_POST['an_fn']);
                                         $isa_fn = ($_POST['isa_fn']);
-                                        echo($an_mp);
-                                        echo($fan_mp);
-                                        echo($kara_mp);
-                                        echo($adr_mp);
-                                        echo($find_mp);
-                                        echo($an_fn);
-                                        echo($isa_fn);
-                                        die;
-                                        // $query = new Query_bdd;
-                                        // $appel_hamandrika = $query->hamandrika($ref, $anarana);
+
+
+                                        $query = new Query_bdd;
+                                        $appel_hamandrika = $query->hamandrika($an_mp, $fan_mp, $kara_mp, $adr_mp, $find_mp, $an_fn, $isa_fn);
+
+                                        $code_crypt = sha1($appel_hamandrika);
+
+                                        $x = exec("python qrgen.py  $code_crypt");
+
+                                        echo $x;
+                                        // include('./phpqrcode/qrlib.php'); //On inclut la librairie au projet
+                                        // $lien='https://www.243tech.com'; // Vous pouvez modifier le lien selon vos besoins
+                                        // QRcode::png($lien, 'image-qrcode.png'); // On crée notre QR Code
+                                        // header("location:image-qrcode.png");
+
                                 }
                                 else{
                                         echo "Hamarino tsara ny isan'ny fanafody nampidirinao";
-                                }       
-                        }        
+                                }
+                        }
                         else{
                                 echo "Hamarino tsara ny laharan'ny findainao";
                         }
-                }             
+                }
                 else{
                         echo "Hamarino tsara ny laharan'ny kara-panondronao";
                 }
         }
         else{
                 echo "Tsy maintsy fenoina daholo ny banga";
-        }                                              
+        }
 }
 
 //deconnexion----------------------------------------------------------------------------------------------------------------------------------

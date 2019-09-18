@@ -2,7 +2,7 @@
 
 class connect_bdd{
           protected function dbconnect(){
-                    $bdd = new PDO('mysql:host=localhost;dbname=Pharmacetica' ,'sserver', 'sserver') or die ('Not connected');
+                    $bdd = new PDO('mysql:host=localhost;dbname=Pharmacetica' ,'gaetan', 'gaetan') or die ('Not connected');
                     return $bdd;
           }
 }
@@ -49,5 +49,28 @@ class Query_bdd extends connect_bdd{
                 $bdd = $this->dbconnect();
                 $ijery =  $bdd->query("SELECT nom from produit ");
                 return  $ijery;
+        }
+
+        public function ijery_user($nom, $prenom, $cin){
+
+                $bdd = $this->dbconnect();
+                $ijery =  $bdd->query("SELECT 1 FROM Client WHERE nom = '$nom' AND prenom = '$prenom' AND cin='$cin' ");
+                $nbr = $ijery->rowCount();
+                return  $nbr;
+        }
+
+        public function hamandrika($an_mp, $fan_mp, $kara_mp, $adr_mp, $find_mp, $an_fn, $isa_fn){
+
+                $mis = $this->ijery_user($an_mp, $fan_mp, $kara_mp);
+                $bdd = $this->dbconnect();
+                if ($mis == 0){
+                  $bdd->query("INSERT INTO Client(nom, prenom, cin, adresse, telephone) VALUES ('$an_mp', '$fan_mp', '$kara_mp', '$adr_mp', '$find_mp') ") or die("Oups");
+                }
+
+                $code = time();
+
+                $bdd->query("INSERT INTO Commande(Numero, produit_name, nbr_produit, client_id) VALUES ('$code', '$an_fn', '$isa_fn', '$kara_mp') ");
+
+                return  $code;
         }
 }
