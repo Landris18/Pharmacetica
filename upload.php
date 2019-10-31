@@ -47,6 +47,6 @@ $oFileInfos = $_FILES["fichier_image"];
         echo 'allo';
     }
     else{
-        echo "Succed";
+        echo "Success";
     }
 ?>
